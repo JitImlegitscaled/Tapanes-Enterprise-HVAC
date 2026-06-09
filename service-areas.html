@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HVAC Services in Tampa Bay, Brandon, Clearwater &amp; Surrounding Areas | Tapanes Enterprise LLC</title>
+  <meta name="description" content="Tapanes Enterprise LLC provides licensed HVAC services — AC repair, heating installation, and maintenance — across Tampa Bay, Brandon, Clearwater, St. Petersburg, Riverview, and surrounding communities." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1B3A6B;
+      --corp-blue: #2E5FA3;
+      --mid-blue: #4A7FBE;
+      --steel: #6B7280;
+      --light-gray: #E5E7EB;
+      --white: #FFFFFF;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: #f8f9fb;
+      color: #1a2333;
+      margin: 0;
+    }
+
+    h1, h2, h3, h4, .heading {
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    nav { position: sticky; top: 0; z-index: 1000; background: rgba(27,58,107,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(74,127,190,0.25); box-shadow: 0 4px 24px rgba(27,58,107,0.35), 0 1px 4px rgba(0,0,0,0.2); }
+    .nav-link { font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(229,231,235,0.85); padding: 0.35rem 0; position: relative; transition: color 0.2s ease; text-decoration: none; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #4A7FBE; transition: width 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+    .nav-link:hover { color: #fff; } .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: #fff; } .nav-link.active::after { width: 100%; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-toggle { font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(229,231,235,0.85); background: none; border: none; cursor: pointer; padding: 0.35rem 0; position: relative; transition: color 0.2s ease; display: inline-flex; align-items: center; gap: 0.3rem; }
+    .nav-dropdown-toggle::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #4A7FBE; transition: width 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+    .nav-dropdown-toggle:hover { color: #fff; } .nav-dropdown-toggle:hover::after { width: 100%; }
+    .nav-dropdown-toggle:focus-visible { outline: 2px solid #4A7FBE; outline-offset: 3px; border-radius: 2px; }
+    .nav-dropdown-toggle[aria-expanded="true"] { color: #fff; } .nav-dropdown-toggle[aria-expanded="true"]::after { width: 100%; }
+    .dropdown-chevron { width: 10px; height: 10px; transition: transform 0.2s ease; flex-shrink: 0; }
+    .nav-dropdown-toggle[aria-expanded="true"] .dropdown-chevron { transform: rotate(180deg); }
+    .nav-dropdown-menu { position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 230px; background: #0f2242; border: 1px solid rgba(74,127,190,0.25); border-radius: 8px; box-shadow: 0 12px 40px rgba(0,0,0,0.35), 0 4px 12px rgba(27,58,107,0.4); padding: 0.5rem 0; opacity: 0; visibility: hidden; transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.34,1.56,0.64,1), visibility 0s 0.18s; z-index: 200; list-style: none; margin: 0; }
+    .nav-dropdown-menu::before { content: ''; position: absolute; top: -5px; left: 50%; transform: translateX(-50%); width: 10px; height: 10px; background: #0f2242; border-left: 1px solid rgba(74,127,190,0.25); border-top: 1px solid rgba(74,127,190,0.25); rotate: 45deg; }
+    .nav-dropdown.open .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.34,1.56,0.64,1); }
+    .dropdown-item { display: flex; align-items: center; gap: 0.6rem; padding: 0.6rem 1.1rem; font-family: 'Raleway', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; color: rgba(229,231,235,0.8); text-decoration: none; transition: background 0.15s ease, color 0.15s ease; white-space: nowrap; }
+    .dropdown-item:hover { background: rgba(74,127,190,0.12); color: #fff; }
+    .dropdown-item:focus-visible { outline: 2px solid #4A7FBE; outline-offset: -2px; background: rgba(74,127,190,0.12); color: #fff; }
+    .dropdown-item-icon { font-size: 1rem; flex-shrink: 0; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 6px; border-radius: 6px; transition: background 0.18s ease; }
+    .hamburger:hover { background: rgba(74,127,190,0.15); } .hamburger:focus-visible { outline: 2px solid #4A7FBE; outline-offset: 2px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: rgba(229,231,235,0.9); border-radius: 2px; transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.18s ease; transform-origin: center; }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; background: #0a1829; border-top: 1px solid rgba(74,127,190,0.2); padding: 0.75rem 0 1rem; }
+    .mobile-menu.open { display: block; }
+    .mobile-nav-link { display: block; font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(229,231,235,0.8); text-decoration: none; padding: 0.75rem 1.5rem; transition: background 0.15s ease, color 0.15s ease; }
+    .mobile-nav-link:hover, .mobile-nav-link:focus-visible { background: rgba(74,127,190,0.1); color: #fff; outline: none; }
+    .mobile-nav-link.active { color: #a8c8f0; }
+    .mobile-accordion-btn { display: flex; align-items: center; justify-content: space-between; width: 100%; background: none; border: none; font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(229,231,235,0.8); padding: 0.75rem 1.5rem; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; }
+    .mobile-accordion-btn:hover, .mobile-accordion-btn:focus-visible { background: rgba(74,127,190,0.1); color: #fff; outline: none; }
+    .mobile-accordion-btn svg { transition: transform 0.2s ease; flex-shrink: 0; }
+    .mobile-accordion-btn[aria-expanded="true"] svg { transform: rotate(180deg); } .mobile-accordion-btn[aria-expanded="true"] { color: #a8c8f0; }
+    .mobile-sub { display: none; background: rgba(255,255,255,0.03); border-left: 2px solid rgba(74,127,190,0.3); margin: 0 1rem 0.25rem; border-radius: 0 4px 4px 0; }
+    .mobile-sub.open { display: block; }
+    .mobile-sub-link { display: flex; align-items: center; gap: 0.5rem; font-family: 'Raleway', sans-serif; font-size: 0.85rem; font-weight: 500; color: rgba(229,231,235,0.7); text-decoration: none; padding: 0.6rem 1.25rem; transition: background 0.15s ease, color 0.15s ease; }
+    .mobile-sub-link:hover, .mobile-sub-link:focus-visible { background: rgba(74,127,190,0.1); color: #fff; outline: none; }
+    .mobile-cta-wrap { padding: 0.75rem 1.5rem 0.25rem; }
+    @media (max-width: 900px) { .nav-desktop { display: none !important; } .hamburger { display: flex; } }
+    @media (min-width: 901px) { .mobile-menu { display: none !important; } }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #2E5FA3 0%, #1B3A6B 100%);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(27, 58, 107, 0.45), 0 1px 3px rgba(0,0,0,0.2);
+      transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease, background 0.18s ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(27, 58, 107, 0.55), 0 2px 6px rgba(0,0,0,0.25);
+      background: linear-gradient(135deg, #3668b8 0%, #22498a 100%);
+    }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:focus-visible { outline: 2px solid #4A7FBE; outline-offset: 3px; }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.73rem 1.73rem;
+      border-radius: 4px;
+      border: 2px solid rgba(255,255,255,0.55);
+      cursor: pointer;
+      transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+      text-decoration: none;
+    }
+    .btn-outline:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+    .btn-outline:active { transform: translateY(0); }
+    .btn-outline:focus-visible { outline: 2px solid #4A7FBE; outline-offset: 3px; }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #2E5FA3;
+      margin-bottom: 0.75rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #2E5FA3;
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: #1B3A6B;
+    }
+
+    /* PAGE HERO */
+    .page-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 1.5rem 4.5rem;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(46, 95, 163, 0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(27, 58, 107, 0.35) 0%, transparent 60%),
+        linear-gradient(160deg, #0d1f3c 0%, #1B3A6B 45%, #243f6e 100%);
+    }
+    .page-hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(74, 127, 190, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74, 127, 190, 0.07) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .page-hero-glow {
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 55vw;
+      height: 55vw;
+      background: radial-gradient(ellipse, rgba(46, 95, 163, 0.3) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* AREA CARDS */
+    .area-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.75rem;
+      border: 1px solid rgba(27, 58, 107, 0.08);
+      box-shadow:
+        0 2px 8px rgba(27, 58, 107, 0.06),
+        0 8px 32px rgba(27, 58, 107, 0.04);
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .area-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #1B3A6B, #4A7FBE);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .area-card:hover {
+      transform: translateY(-5px);
+      box-shadow:
+        0 8px 28px rgba(27, 58, 107, 0.12),
+        0 24px 64px rgba(27, 58, 107, 0.08);
+    }
+    .area-card:hover::before { transform: scaleX(1); }
+
+    .area-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #1B3A6B;
+      margin-bottom: 0.4rem;
+    }
+    .area-desc {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: #6B7280;
+    }
+    .area-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(27, 58, 107, 0.06);
+      border: 1px solid rgba(27, 58, 107, 0.1);
+      border-radius: 100px;
+      padding: 0.22rem 0.65rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #2E5FA3;
+      margin-top: 0.85rem;
+    }
+
+    /* MAP SECTION */
+    .map-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(27, 58, 107, 0.12);
+      box-shadow:
+        0 4px 20px rgba(27, 58, 107, 0.1),
+        0 16px 48px rgba(27, 58, 107, 0.07);
+    }
+    .map-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 460px;
+      border: none;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background:
+        radial-gradient(ellipse 70% 80% at 30% 50%, rgba(46, 95, 163, 0.25) 0%, transparent 65%),
+        linear-gradient(140deg, #0d1f3c 0%, #1B3A6B 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #080f1c;
+      color: rgba(229, 231, 235, 0.6);
+    }
+    .footer-heading {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      color: rgba(229,231,235,0.45);
+      margin-bottom: 1rem;
+    }
+    .footer-link {
+      display: block;
+      font-size: 0.9rem;
+      color: rgba(229,231,235,0.65);
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      transition: color 0.18s ease;
+    }
+    .footer-link:hover { color: #4A7FBE; }
+    .footer-link:focus-visible { outline: 2px solid #4A7FBE; outline-offset: 2px; }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(74, 127, 190, 0.3), transparent);
+    }
+
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(74, 127, 190, 0.12);
+      border: 1px solid rgba(74, 127, 190, 0.25);
+      border-radius: 6px;
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+      color: #a8c8f0;
+      transition: background 0.18s ease, border-color 0.18s ease;
+      text-decoration: none;
+    }
+    .contact-badge:hover {
+      background: rgba(74, 127, 190, 0.2);
+      border-color: rgba(74, 127, 190, 0.45);
+      color: #c8dcf5;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.3, 0.64, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .desktop-only { display: none; }
+    @media (min-width: 768px) { .desktop-only { display: inline; } }
+
+    @media (max-width: 768px) {
+      .map-wrap iframe { height: 320px; }
+      .areas-grid { grid-template-columns: 1fr !important; }
+    }
+    @media (min-width: 600px) and (max-width: 899px) {
+      .areas-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+  </style>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+  <link rel="preload" href="Brand_Assets/Logo.png" as="image" />
+  <!-- Google Analytics (GA4) — replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav aria-label="Main navigation">
+    <div style="max-width:1200px; margin:0 auto; padding:0 1.5rem;">
+      <div style="display:flex; align-items:center; justify-content:space-between; height:70px;">
+        <a href="index.html" style="display:flex; align-items:center; gap:0.75rem; text-decoration:none; flex-shrink:0;" aria-label="Tapanes Enterprise LLC — Home">
+          <img src="Brand_Assets/Logo.png" alt="Tapanes Enterprise LLC" style="height:54px; width:auto; display:block;" width="200" height="54" fetchpriority="high" />
+        </a>
+        <div class="nav-desktop" style="display:flex; align-items:center; gap:2rem;">
+          <a href="index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown" id="nav-dropdown-services">
+            <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="services-menu" id="services-btn">
+              Services
+              <svg class="dropdown-chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <ul class="nav-dropdown-menu" id="services-menu" role="menu" aria-labelledby="services-btn">
+              <li role="none"><a href="services/air-conditioning.html" class="dropdown-item" role="menuitem"><span class="dropdown-item-icon">❄️</span>Air Conditioning</a></li>
+              <li role="none"><a href="services/heating-systems.html" class="dropdown-item" role="menuitem"><span class="dropdown-item-icon">🔥</span>Heating Systems</a></li>
+              <li role="none"><a href="services/repairs-diagnostics.html" class="dropdown-item" role="menuitem"><span class="dropdown-item-icon">🔧</span>Repairs &amp; Diagnostics</a></li>
+              <li role="none"><a href="services/preventive-maintenance.html" class="dropdown-item" role="menuitem"><span class="dropdown-item-icon">🛡️</span>Preventive Maintenance</a></li>
+              <li role="none"><a href="services/commercial-hvac.html" class="dropdown-item" role="menuitem"><span class="dropdown-item-icon">🏢</span>Commercial HVAC</a></li>
+              <li role="none"><a href="services/residential-services.html" class="dropdown-item" role="menuitem"><span class="dropdown-item-icon">🏠</span>Residential Services</a></li>
+            </ul>
+          </div>
+          <a href="service-areas.html" class="nav-link active">Service Areas</a>
+          <a href="index.html#about" class="nav-link">About Us</a>
+          <a href="blog/index.html" class="nav-link">Blog</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="contact.html" class="btn-primary" style="font-size:0.82rem; padding:0.55rem 1.4rem; margin-left:0.5rem;" aria-label="Get a Free Estimate">
+            Get a Free Estimate
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <button class="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu" id="hamburger-btn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <button class="mobile-accordion-btn" aria-expanded="false" aria-controls="mobile-services-sub" id="mobile-services-btn">
+          Services
+          <svg width="14" height="14" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mobile-sub" id="mobile-services-sub" role="list">
+          <a href="services/air-conditioning.html" class="mobile-sub-link" role="listitem"><span>❄️</span>Air Conditioning</a>
+          <a href="services/heating-systems.html" class="mobile-sub-link" role="listitem"><span>🔥</span>Heating Systems</a>
+          <a href="services/repairs-diagnostics.html" class="mobile-sub-link" role="listitem"><span>🔧</span>Repairs &amp; Diagnostics</a>
+          <a href="services/preventive-maintenance.html" class="mobile-sub-link" role="listitem"><span>🛡️</span>Preventive Maintenance</a>
+          <a href="services/commercial-hvac.html" class="mobile-sub-link" role="listitem"><span>🏢</span>Commercial HVAC</a>
+          <a href="services/residential-services.html" class="mobile-sub-link" role="listitem"><span>🏠</span>Residential Services</a>
+        </div>
+        <a href="service-areas.html" class="mobile-nav-link active">Service Areas</a>
+        <a href="index.html#about" class="mobile-nav-link">About Us</a>
+        <a href="blog/index.html" class="mobile-nav-link">Blog</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+        <div class="mobile-cta-wrap">
+          <a href="contact.html" class="btn-primary" style="width:100%; justify-content:center; font-size:0.9rem; padding:0.8rem 1.5rem;">
+            Get a Free Estimate
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script>
+    (function() {
+      var dropdown = document.getElementById('nav-dropdown-services');
+      var dropBtn = document.getElementById('services-btn');
+      var dropMenu = document.getElementById('services-menu');
+      var menuItems = dropMenu ? dropMenu.querySelectorAll('[role="menuitem"]') : [];
+      function openDD() { dropdown.classList.add('open'); dropBtn.setAttribute('aria-expanded','true'); }
+      function closeDD() { dropdown.classList.remove('open'); dropBtn.setAttribute('aria-expanded','false'); }
+      if (dropBtn) {
+        dropBtn.addEventListener('click', function(e) { e.stopPropagation(); dropdown.classList.contains('open') ? closeDD() : openDD(); });
+        dropBtn.addEventListener('keydown', function(e) { if (e.key==='ArrowDown'){e.preventDefault();openDD();if(menuItems[0])menuItems[0].focus();} if(e.key==='Escape')closeDD(); });
+      }
+      if (dropMenu) {
+        dropMenu.addEventListener('keydown', function(e) { var idx=Array.prototype.indexOf.call(menuItems,document.activeElement); if(e.key==='ArrowDown'){e.preventDefault();if(idx<menuItems.length-1)menuItems[idx+1].focus();} if(e.key==='ArrowUp'){e.preventDefault();if(idx>0)menuItems[idx-1].focus();else{closeDD();dropBtn.focus();}} if(e.key==='Escape'){closeDD();dropBtn.focus();} if(e.key==='Tab')closeDD(); });
+      }
+      document.addEventListener('click', function(e) { if(dropdown&&!dropdown.contains(e.target))closeDD(); });
+      var hbtn = document.getElementById('hamburger-btn');
+      var mmenu = document.getElementById('mobile-menu');
+      if (hbtn&&mmenu) hbtn.addEventListener('click', function() { var o=mmenu.classList.toggle('open'); hbtn.setAttribute('aria-expanded',o?'true':'false'); });
+      var msbtn = document.getElementById('mobile-services-btn');
+      var mssub = document.getElementById('mobile-services-sub');
+      if (msbtn&&mssub) msbtn.addEventListener('click', function() { var o=mssub.classList.toggle('open'); msbtn.setAttribute('aria-expanded',o?'true':'false'); });
+    })();
+  </script>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-grid"></div>
+    <div class="page-hero-glow"></div>
+    <div style="position:absolute; right:-3%; top:50%; transform:translateY(-50%); width:380px; height:380px; border-radius:50%; border:1px solid rgba(74,127,190,0.18); pointer-events:none;"></div>
+
+    <div style="max-width:1200px; margin:0 auto; position:relative; z-index:2;">
+
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="margin-bottom:1.75rem;">
+        <ol style="display:flex; align-items:center; gap:0.5rem; list-style:none; margin:0; padding:0; font-size:0.8rem;">
+          <li><a href="index.html" style="color:rgba(168,200,240,0.65); text-decoration:none; transition:color 0.18s ease;" onmouseover="this.style.color='#a8c8f0'" onmouseout="this.style.color='rgba(168,200,240,0.65)'">Home</a></li>
+          <li style="color:rgba(168,200,240,0.35);">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </li>
+          <li style="color:#a8c8f0; font-weight:600;">Service Areas</li>
+        </ol>
+      </nav>
+
+      <div style="max-width:680px;">
+        <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(74,127,190,0.15); border:1px solid rgba(74,127,190,0.35); border-radius:100px; padding:0.3rem 0.9rem; font-size:0.75rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#a8c8f0; margin-bottom:1.25rem;">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="#4A7FBE"/></svg>
+          Tampa Bay &amp; Surrounding Communities
+        </div>
+
+        <h1 style="font-size:clamp(2.4rem,5vw,4rem); font-weight:700; line-height:1.05; letter-spacing:-0.03em; color:#fff; margin:0 0 1.25rem;">
+          HVAC Services in<br/>
+          <span style="background:linear-gradient(90deg,#4A7FBE,#a8c8f0); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Tampa Bay, Brandon</span><br/>
+          &amp; Surrounding Areas
+        </h1>
+
+        <p style="font-size:1.1rem; font-weight:400; line-height:1.75; color:rgba(229,231,235,0.78); max-width:540px; margin:0 0 2.25rem;">
+          Tapanes Enterprise LLC delivers prompt, reliable HVAC services — from air conditioning repair to heating installation and preventive maintenance — across Tampa Bay and the surrounding communities. Whether you're in Brandon, Clearwater, or Riverview, our licensed technicians are ready to keep your home or business comfortable year-round.
+        </p>
+
+        <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+          <a href="index.html#contact" class="btn-primary" style="font-size:1rem; padding:0.85rem 2rem;">
+            Get a Free Estimate
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="tel:+18135781529" class="btn-outline" style="font-size:1rem; padding:0.85rem 2rem;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 3.5A1.5 1.5 0 013.5 2h1.39c.414 0 .784.253.934.64l.738 1.847a1 1 0 01-.23 1.052l-.649.65a8.5 8.5 0 004.14 4.14l.649-.65a1 1 0 011.052-.229l1.847.738c.387.15.64.52.64.934V13.5A1.5 1.5 0 0112.5 15C6.701 15 2 10.3 2 4.5V3.5z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            813-578-1529
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS GRID -->
+  <section style="padding:5.5rem 1.5rem; background:#f4f6fa;">
+    <div style="max-width:1200px; margin:0 auto;">
+
+      <div style="text-align:center; margin-bottom:3.5rem;" class="fade-up">
+        <div class="section-label" style="justify-content:center;">Where We Work</div>
+        <h2 class="section-title">Communities We Serve</h2>
+        <p style="margin-top:0.75rem; color:#6B7280; font-size:1rem; line-height:1.7; max-width:560px; margin-left:auto; margin-right:auto;">
+          Our service territory spans the greater Tampa Bay region. If your area isn't listed, call us — chances are we can still help.
+        </p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;" class="areas-grid">
+
+        <div class="area-card fade-up">
+          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:0.6rem;">
+            <div style="width:36px; height:36px; background:linear-gradient(135deg,rgba(27,58,107,0.1),rgba(74,127,190,0.15)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0;">📍</div>
+            <div class="area-name">Tampa</div>
+          </div>
+          <p class="area-desc">Our home base. We provide full-service AC repair, system replacements, and preventive maintenance to residential and commercial clients throughout Tampa.</p>
+          <span class="area-tag">AC Repair · Installations · Maintenance</span>
+        </div>
+
+        <div class="area-card fade-up">
+          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:0.6rem;">
+            <div style="width:36px; height:36px; background:linear-gradient(135deg,rgba(27,58,107,0.1),rgba(74,127,190,0.15)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0;">📍</div>
+            <div class="area-name">Brandon</div>
+          </div>
+          <p class="area-desc">Serving Brandon homeowners and businesses with air conditioning installation and repair services — fast response times, honest pricing.</p>
+          <span class="area-tag">AC Installation · Repairs</span>
+        </div>
+
+        <div class="area-card fade-up">
+          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:0.6rem;">
+            <div style="width:36px; height:36px; background:linear-gradient(135deg,rgba(27,58,107,0.1),rgba(74,127,190,0.15)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0;">📍</div>
+            <div class="area-name">Clearwater</div>
+          </div>
+          <p class="area-desc">Keeping Clearwater properties cool and comfortable with expert AC service, duct inspection, and heating system tune-ups year-round.</p>
+          <span class="area-tag">AC Service · Heating · Diagnostics</span>
+        </div>
+
+        <div class="area-card fade-up">
+          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:0.6rem;">
+            <div style="width:36px; height:36px; background:linear-gradient(135deg,rgba(27,58,107,0.1),rgba(74,127,190,0.15)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0;">📍</div>
+            <div class="area-name">St. Petersburg</div>
+          </div>
+          <p class="area-desc">Trusted HVAC services in St. Pete including air conditioning repair, emergency service calls, and full system replacements for homes and offices.</p>
+          <span class="area-tag">Emergency Service · AC Repair</span>
+        </div>
+
+        <div class="area-card fade-up">
+          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:0.6rem;">
+            <div style="width:36px; height:36px; background:linear-gradient(135deg,rgba(27,58,107,0.1),rgba(74,127,190,0.15)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0;">📍</div>
+            <div class="area-name">Riverview</div>
+          </div>
+          <p class="area-desc">Delivering reliable HVAC installation and maintenance to Riverview residents — including new construction and system upgrades for growing homes.</p>
+          <span class="area-tag">Installations · Maintenance</span>
+        </div>
+
+        <div class="area-card fade-up">
+          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:0.6rem;">
+            <div style="width:36px; height:36px; background:linear-gradient(135deg,rgba(27,58,107,0.1),rgba(74,127,190,0.15)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0;">📍</div>
+            <div class="area-name">Valrico</div>
+          </div>
+          <p class="area-desc">Providing Valrico families with preventive maintenance plans, AC repairs, and heating system services to stay comfortable through every season.</p>
+          <span class="area-tag">Preventive Maintenance · Repairs</span>
+        </div>
+
+        <div class="area-card fade-up">
+          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:0.6rem;">
+            <div style="width:36px; height:36px; background:linear-gradient(135deg,rgba(27,58,107,0.1),rgba(74,127,190,0.15)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0;">📍</div>
+            <div class="area-name">Lutz</div>
+          </div>
+          <p class="area-desc">Licensed HVAC services throughout Lutz — from AC diagnostics and repairs to complete system installations for residential and light commercial properties.</p>
+          <span class="area-tag">Diagnostics · Installations</span>
+        </div>
+
+        <div class="area-card fade-up">
+          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:0.6rem;">
+            <div style="width:36px; height:36px; background:linear-gradient(135deg,rgba(27,58,107,0.1),rgba(74,127,190,0.15)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0;">📍</div>
+            <div class="area-name">Dunedin</div>
+          </div>
+          <p class="area-desc">Serving Dunedin with quality air conditioning maintenance, heat pump services, and responsive repair solutions for both residential and commercial spaces.</p>
+          <span class="area-tag">Heat Pump · AC Maintenance</span>
+        </div>
+
+        <div class="area-card fade-up">
+          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:0.6rem;">
+            <div style="width:36px; height:36px; background:linear-gradient(135deg,rgba(27,58,107,0.1),rgba(74,127,190,0.15)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0;">📍</div>
+            <div class="area-name">Plant City</div>
+          </div>
+          <p class="area-desc">Commercial and residential HVAC support in Plant City — including AC replacements, scheduled maintenance contracts, and emergency repair response.</p>
+          <span class="area-tag">Commercial · Residential</span>
+        </div>
+
+        <div class="area-card fade-up">
+          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:0.6rem;">
+            <div style="width:36px; height:36px; background:linear-gradient(135deg,rgba(27,58,107,0.1),rgba(74,127,190,0.15)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0;">📍</div>
+            <div class="area-name">Wesley Chapel</div>
+          </div>
+          <p class="area-desc">Fast, professional air conditioning repair and heating maintenance in Wesley Chapel — serving newer developments and established neighborhoods alike.</p>
+          <span class="area-tag">AC Repair · Heating Maintenance</span>
+        </div>
+
+        <div class="area-card fade-up">
+          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:0.6rem;">
+            <div style="width:36px; height:36px; background:linear-gradient(135deg,rgba(27,58,107,0.1),rgba(74,127,190,0.15)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0;">📍</div>
+            <div class="area-name">Sun City Center</div>
+          </div>
+          <p class="area-desc">Reliable HVAC service for Sun City Center residents — including AC tune-ups, system efficiency upgrades, and responsive repair calls when you need us most.</p>
+          <span class="area-tag">Tune-Ups · Efficiency Upgrades</span>
+        </div>
+
+        <div class="area-card fade-up" style="background:linear-gradient(135deg, #f0f5ff 0%, #fff 60%); border-color:rgba(27,58,107,0.15);">
+          <div style="display:flex; align-items:center; gap:0.65rem; margin-bottom:0.6rem;">
+            <div style="width:36px; height:36px; background:linear-gradient(135deg,rgba(27,58,107,0.12),rgba(74,127,190,0.2)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0;">🗺️</div>
+            <div class="area-name" style="color:#2E5FA3;">Don't See Your Area?</div>
+          </div>
+          <p class="area-desc">We regularly expand our coverage. Give us a call — we may already serve your neighborhood or be able to schedule a visit.</p>
+          <a href="tel:+18135781529" style="display:inline-flex; align-items:center; gap:0.4rem; margin-top:0.85rem; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#2E5FA3; text-decoration:none; transition:color 0.18s ease;" onmouseover="this.style.color='#1B3A6B'" onmouseout="this.style.color='#2E5FA3'">
+            Call 813-578-1529
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP SECTION -->
+  <section style="padding:4rem 1.5rem 5.5rem; background:#fff;">
+    <div style="max-width:1200px; margin:0 auto;">
+
+      <div style="text-align:center; margin-bottom:2.5rem;" class="fade-up">
+        <div class="section-label" style="justify-content:center;">Coverage Map</div>
+        <h2 class="section-title">Our Service Coverage</h2>
+        <p style="margin-top:0.75rem; color:#6B7280; font-size:1rem; line-height:1.7; max-width:520px; margin-left:auto; margin-right:auto;">
+          We're centrally located in the Tampa Bay area to provide fast response times across the entire region.
+        </p>
+      </div>
+
+      <div class="map-wrap fade-up">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d225220.8437786!2d-82.53!3d27.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2b782b3b9d1e1%3A0xa75f1389af96b463!2sTampa%2C%20FL!5e0!3m2!1sen!2sus!4v1718000000000!5m2!1sen!2sus"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Tapanes Enterprise HVAC service area map centered on Tampa Bay, FL"
+          style="width:100%; height:460px; border:none; display:block;">
+        </iframe>
+      </div>
+
+      <!-- Coverage callouts below map -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.25rem; margin-top:2rem;" class="fade-up">
+        <div style="display:flex; align-items:center; gap:0.75rem; background:#f4f6fa; border-radius:8px; padding:1rem 1.25rem; border:1px solid rgba(27,58,107,0.07);">
+          <div style="width:10px; height:10px; background:#1B3A6B; border-radius:50%; flex-shrink:0;"></div>
+          <span style="font-size:0.88rem; font-weight:600; color:#1B3A6B;">Tampa &amp; Brandon</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.75rem; background:#f4f6fa; border-radius:8px; padding:1rem 1.25rem; border:1px solid rgba(27,58,107,0.07);">
+          <div style="width:10px; height:10px; background:#2E5FA3; border-radius:50%; flex-shrink:0;"></div>
+          <span style="font-size:0.88rem; font-weight:600; color:#1B3A6B;">Clearwater &amp; St. Pete</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.75rem; background:#f4f6fa; border-radius:8px; padding:1rem 1.25rem; border:1px solid rgba(27,58,107,0.07);">
+          <div style="width:10px; height:10px; background:#4A7FBE; border-radius:50%; flex-shrink:0;"></div>
+          <span style="font-size:0.88rem; font-weight:600; color:#1B3A6B;">Riverview &amp; Valrico</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.75rem; background:#f4f6fa; border-radius:8px; padding:1rem 1.25rem; border:1px solid rgba(27,58,107,0.07);">
+          <div style="width:10px; height:10px; background:#6B7280; border-radius:50%; flex-shrink:0;"></div>
+          <span style="font-size:0.88rem; font-weight:600; color:#1B3A6B;">Wesley Chapel &amp; Lutz</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-section" style="padding:5rem 1.5rem;">
+    <div style="position:relative; z-index:2; max-width:700px; margin:0 auto; text-align:center;" class="fade-up">
+      <div class="section-label" style="color:#a8c8f0; justify-content:center;">Ready to Schedule?</div>
+      <h2 style="font-family:'Oswald',sans-serif; font-size:clamp(2rem,4.5vw,3.25rem); font-weight:700; letter-spacing:-0.025em; color:#fff; margin-bottom:1rem;">
+        Serving Your Community<br/>with Every Job
+      </h2>
+      <p style="color:rgba(229,231,235,0.7); font-size:1rem; line-height:1.7; max-width:500px; margin:0 auto 2.5rem;">
+        No matter where you are in the Tampa Bay region, Tapanes Enterprise is ready to respond. Contact us today for a free, no-obligation estimate.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;">
+        <a href="contact.html" class="btn-primary" style="font-size:1rem; padding:0.85rem 2rem;">
+          Book Service in Your Area
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="tel:+18135781529" class="contact-badge" style="font-size:1rem; padding:0.8rem 1.5rem;">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M2 3.5A1.5 1.5 0 013.5 2h1.39c.414 0 .784.253.934.64l.738 1.847a1 1 0 01-.23 1.052l-.649.65a8.5 8.5 0 004.14 4.14l.649-.65a1 1 0 011.052-.229l1.847.738c.387.15.64.52.64.934V13.5A1.5 1.5 0 0112.5 15C6.701 15 2 10.3 2 4.5V3.5z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          813-578-1529
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:3.5rem 1.5rem 1.5rem;">
+    <div style="max-width:1200px; margin:0 auto;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2.5rem; margin-bottom:3rem;">
+
+        <div>
+          <img src="Brand_Assets/Logo.png" alt="Tapanes Enterprise LLC" style="height:52px; width:auto; margin-bottom:1rem; filter:brightness(0) invert(1); opacity:0.85;" width="200" height="52" loading="lazy" />
+          <p style="font-size:0.88rem; line-height:1.7; color:rgba(229,231,235,0.5); max-width:240px;">
+            Service. Solutions. Strength You Can Count On. — Proudly serving Tampa Bay and surrounding areas.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Services</div>
+          <a href="services/air-conditioning.html" class="footer-link">Air Conditioning</a>
+          <a href="services/heating-systems.html" class="footer-link">Heating Systems</a>
+          <a href="services/repairs-diagnostics.html" class="footer-link">Repairs &amp; Diagnostics</a>
+          <a href="services/preventive-maintenance.html" class="footer-link">Preventive Maintenance</a>
+          <a href="services/commercial-hvac.html" class="footer-link">Commercial HVAC</a>
+          <a href="services/residential-services.html" class="footer-link">Residential Services</a>
+        </div>
+
+        <div>
+          <div class="footer-heading">Company</div>
+          <a href="index.html#why-us" class="footer-link">Why Choose Us</a>
+          <a href="index.html#process" class="footer-link">Our Process</a>
+          <a href="index.html#faq" class="footer-link">FAQ</a>
+          <a href="service-areas.html" class="footer-link" style="color:#4A7FBE;">Service Areas</a>
+          <a href="contact.html" class="footer-link">Contact Us</a>
+        </div>
+
+        <!-- NAP Block for local SEO -->
+        <div>
+          <div class="footer-heading">Contact</div>
+          <p style="font-size:0.9rem; color:rgba(229,231,235,0.65); line-height:1.7; margin-bottom:0.75rem;">
+            <strong style="display:block; color:rgba(229,231,235,0.85); font-weight:600;">Tapanes Enterprise LLC</strong>
+            Tampa Bay, FL &amp; Surrounding Areas
+          </p>
+          <a href="tel:+18135781529" class="footer-link" style="display:flex; align-items:center; gap:0.5rem;">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 3.5A1.5 1.5 0 013.5 2h1.39c.414 0 .784.253.934.64l.738 1.847a1 1 0 01-.23 1.052l-.649.65a8.5 8.5 0 004.14 4.14l.649-.65a1 1 0 011.052-.229l1.847.738c.387.15.64.52.64.934V13.5A1.5 1.5 0 0112.5 15C6.701 15 2 10.3 2 4.5V3.5z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            813-578-1529
+          </a>
+          <a href="mailto:Tapanesenterprise@gmail.com" class="footer-link" style="display:flex; align-items:center; gap:0.5rem;">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 4a1 1 0 011-1h10a1 1 0 011 1v8a1 1 0 01-1 1H3a1 1 0 01-1-1V4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 4l6 5 6-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Tapanesenterprise@gmail.com
+          </a>
+          <p style="font-size:0.85rem; color:rgba(229,231,235,0.4); margin-top:0.75rem; line-height:1.6;">
+            Se Habla Español<br/>
+            Emergency service available
+          </p>
+        </div>
+
+      </div>
+
+      <div class="divider"></div>
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem; margin-top:1.5rem;">
+        <p style="font-size:0.8rem; color:rgba(229,231,235,0.35); margin:0;">© 2026 Tapanes Enterprise LLC. All rights reserved.</p>
+        <p style="font-size:0.8rem; color:rgba(229,231,235,0.35); margin:0;">Licensed · Insured · EPA Certified</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px 9999px 0px' });
+    fadeEls.forEach(el => io.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

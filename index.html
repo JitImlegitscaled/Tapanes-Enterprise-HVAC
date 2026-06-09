@@ -47,7 +47,7 @@
     nav {
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
       background: rgba(27, 58, 107, 0.97);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(74, 127, 190, 0.25);
@@ -64,6 +64,7 @@
       padding: 0.35rem 0;
       position: relative;
       transition: color 0.2s ease;
+      text-decoration: none;
     }
     .nav-link::after {
       content: '';
@@ -77,6 +78,211 @@
     }
     .nav-link:hover { color: #fff; }
     .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: #fff; }
+    .nav-link.active::after { width: 100%; }
+
+    /* SERVICES DROPDOWN */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-toggle {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(229, 231, 235, 0.85);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.35rem 0;
+      position: relative;
+      transition: color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .nav-dropdown-toggle::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #4A7FBE;
+      transition: width 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .nav-dropdown-toggle:hover { color: #fff; }
+    .nav-dropdown-toggle:hover::after { width: 100%; }
+    .nav-dropdown-toggle:focus-visible { outline: 2px solid #4A7FBE; outline-offset: 3px; border-radius: 2px; }
+    .nav-dropdown-toggle[aria-expanded="true"] { color: #fff; }
+    .nav-dropdown-toggle[aria-expanded="true"]::after { width: 100%; }
+    .dropdown-chevron {
+      width: 10px; height: 10px;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+    .nav-dropdown-toggle[aria-expanded="true"] .dropdown-chevron { transform: rotate(180deg); }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      min-width: 230px;
+      background: #0f2242;
+      border: 1px solid rgba(74,127,190,0.25);
+      border-radius: 8px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35), 0 4px 12px rgba(27,58,107,0.4);
+      padding: 0.5rem 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.34,1.56,0.64,1), visibility 0s 0.18s;
+      z-index: 200;
+    }
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px; height: 10px;
+      background: #0f2242;
+      border-left: 1px solid rgba(74,127,190,0.25);
+      border-top: 1px solid rgba(74,127,190,0.25);
+      rotate: 45deg;
+    }
+    .nav-dropdown.open .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+      transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 1.1rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: rgba(229,231,235,0.8);
+      text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(74,127,190,0.12); color: #fff; }
+    .dropdown-item:focus-visible { outline: 2px solid #4A7FBE; outline-offset: -2px; background: rgba(74,127,190,0.12); color: #fff; }
+    .dropdown-item-icon { font-size: 1rem; flex-shrink: 0; }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 6px;
+      transition: background 0.18s ease;
+    }
+    .hamburger:hover { background: rgba(74,127,190,0.15); }
+    .hamburger:focus-visible { outline: 2px solid #4A7FBE; outline-offset: 2px; }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: rgba(229,231,235,0.9);
+      border-radius: 2px;
+      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.18s ease;
+      transform-origin: center;
+    }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* MOBILE MENU */
+    .mobile-menu {
+      display: none;
+      background: #0a1829;
+      border-top: 1px solid rgba(74,127,190,0.2);
+      padding: 0.75rem 0 1rem;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-nav-link {
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(229,231,235,0.8);
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .mobile-nav-link:hover, .mobile-nav-link:focus-visible { background: rgba(74,127,190,0.1); color: #fff; outline: none; }
+    .mobile-nav-link.active { color: #a8c8f0; }
+
+    .mobile-accordion-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: none;
+      border: none;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(229,231,235,0.8);
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .mobile-accordion-btn:hover, .mobile-accordion-btn:focus-visible { background: rgba(74,127,190,0.1); color: #fff; outline: none; }
+    .mobile-accordion-btn svg { transition: transform 0.2s ease; flex-shrink: 0; }
+    .mobile-accordion-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+    .mobile-accordion-btn[aria-expanded="true"] { color: #a8c8f0; }
+
+    .mobile-sub {
+      display: none;
+      background: rgba(255,255,255,0.03);
+      border-left: 2px solid rgba(74,127,190,0.3);
+      margin: 0 1rem 0.25rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .mobile-sub.open { display: block; }
+    .mobile-sub-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(229,231,235,0.7);
+      text-decoration: none;
+      padding: 0.6rem 1.25rem;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .mobile-sub-link:hover, .mobile-sub-link:focus-visible { background: rgba(74,127,190,0.1); color: #fff; outline: none; }
+
+    .mobile-cta-wrap {
+      padding: 0.75rem 1.5rem 0.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .nav-desktop { display: none !important; }
+      .hamburger { display: flex; }
+    }
+    @media (min-width: 901px) {
+      .mobile-menu { display: none !important; }
+    }
 
     .btn-primary {
       display: inline-flex;
@@ -483,35 +689,162 @@
       .services-grid { grid-template-columns: 1fr !important; }
     }
   </style>
+  <!-- DNS prefetch for external resources -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+  <link rel="dns-prefetch" href="https://placehold.co" />
+  <!-- Preload above-fold logo -->
+  <link rel="preload" href="Brand_Assets/Logo.png" as="image" />
+  <!-- Google Analytics (GA4) — replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 </head>
 <body>
 
   <!-- NAVIGATION -->
-  <nav>
-    <div style="max-width:1200px; margin:0 auto; padding:0 1.5rem; display:flex; align-items:center; justify-content:space-between; height:70px;">
-      <a href="#" style="display:flex; align-items:center; gap:0.75rem; text-decoration:none; flex-shrink:0;">
-        <img src="Brand_Assets/Logo.png" alt="Tapanes Enterprise LLC" style="height:54px; width:auto; display:block;" />
-      </a>
-      <div style="display:flex; align-items:center; gap:2.25rem;">
-        <a href="#services" class="nav-link" style="display:none;">Services</a>
-        <a href="#why-us" class="nav-link" style="display:none;">Why Us</a>
-        <a href="#process" class="nav-link" style="display:none;">Process</a>
-        <a href="#contact" class="nav-link" style="display:none;">Contact</a>
-        <!-- Desktop links -->
-        <a href="#services" class="nav-link desktop-only">Services</a>
-        <a href="#why-us" class="nav-link desktop-only">Why Us</a>
-        <a href="#process" class="nav-link desktop-only">Process</a>
-        <a href="#contact" class="btn-primary" style="font-size:0.82rem; padding:0.55rem 1.25rem;">
-          Get a Free Quote
+  <nav aria-label="Main navigation">
+    <div style="max-width:1200px; margin:0 auto; padding:0 1.5rem;">
+      <!-- Desktop bar -->
+      <div style="display:flex; align-items:center; justify-content:space-between; height:70px;">
+        <a href="index.html" style="display:flex; align-items:center; gap:0.75rem; text-decoration:none; flex-shrink:0;" aria-label="Tapanes Enterprise LLC — Home">
+          <img src="Brand_Assets/Logo.png" alt="Tapanes Enterprise LLC" style="height:54px; width:auto; display:block;" width="200" height="54" fetchpriority="high" />
         </a>
+
+        <!-- Desktop links -->
+        <div class="nav-desktop" style="display:flex; align-items:center; gap:2rem;">
+          <a href="index.html" class="nav-link active">Home</a>
+
+          <!-- Services dropdown -->
+          <div class="nav-dropdown" id="nav-dropdown-services">
+            <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="services-menu" id="services-btn">
+              Services
+              <svg class="dropdown-chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <ul class="nav-dropdown-menu" id="services-menu" role="menu" aria-labelledby="services-btn">
+              <li role="none"><a href="services/air-conditioning.html" class="dropdown-item" role="menuitem"><span class="dropdown-item-icon">❄️</span>Air Conditioning</a></li>
+              <li role="none"><a href="services/heating-systems.html" class="dropdown-item" role="menuitem"><span class="dropdown-item-icon">🔥</span>Heating Systems</a></li>
+              <li role="none"><a href="services/repairs-diagnostics.html" class="dropdown-item" role="menuitem"><span class="dropdown-item-icon">🔧</span>Repairs &amp; Diagnostics</a></li>
+              <li role="none"><a href="services/preventive-maintenance.html" class="dropdown-item" role="menuitem"><span class="dropdown-item-icon">🛡️</span>Preventive Maintenance</a></li>
+              <li role="none"><a href="services/commercial-hvac.html" class="dropdown-item" role="menuitem"><span class="dropdown-item-icon">🏢</span>Commercial HVAC</a></li>
+              <li role="none"><a href="services/residential-services.html" class="dropdown-item" role="menuitem"><span class="dropdown-item-icon">🏠</span>Residential Services</a></li>
+            </ul>
+          </div>
+
+          <a href="service-areas.html" class="nav-link">Service Areas</a>
+          <a href="index.html#about" class="nav-link">About Us</a>
+          <a href="blog/index.html" class="nav-link">Blog</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="contact.html" class="btn-primary" style="font-size:0.82rem; padding:0.55rem 1.4rem; margin-left:0.5rem;" aria-label="Get a Free Estimate">
+            Get a Free Estimate
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <!-- Hamburger (mobile) -->
+        <button class="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu" id="hamburger-btn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <a href="index.html" class="mobile-nav-link active">Home</a>
+
+        <button class="mobile-accordion-btn" aria-expanded="false" aria-controls="mobile-services-sub" id="mobile-services-btn">
+          Services
+          <svg width="14" height="14" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mobile-sub" id="mobile-services-sub" role="list">
+          <a href="services/air-conditioning.html" class="mobile-sub-link" role="listitem"><span>❄️</span>Air Conditioning</a>
+          <a href="services/heating-systems.html" class="mobile-sub-link" role="listitem"><span>🔥</span>Heating Systems</a>
+          <a href="services/repairs-diagnostics.html" class="mobile-sub-link" role="listitem"><span>🔧</span>Repairs &amp; Diagnostics</a>
+          <a href="services/preventive-maintenance.html" class="mobile-sub-link" role="listitem"><span>🛡️</span>Preventive Maintenance</a>
+          <a href="services/commercial-hvac.html" class="mobile-sub-link" role="listitem"><span>🏢</span>Commercial HVAC</a>
+          <a href="services/residential-services.html" class="mobile-sub-link" role="listitem"><span>🏠</span>Residential Services</a>
+        </div>
+
+        <a href="service-areas.html" class="mobile-nav-link">Service Areas</a>
+        <a href="index.html#about" class="mobile-nav-link">About Us</a>
+        <a href="blog/index.html" class="mobile-nav-link">Blog</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+        <div class="mobile-cta-wrap">
+          <a href="contact.html" class="btn-primary" style="width:100%; justify-content:center; font-size:0.9rem; padding:0.8rem 1.5rem;">
+            Get a Free Estimate
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </nav>
 
-  <style>
-    .desktop-only { display: none; }
-    @media (min-width: 768px) { .desktop-only { display: inline; } }
-  </style>
+  <script>
+    (function() {
+      // Dropdown
+      var dropdown = document.getElementById('nav-dropdown-services');
+      var dropBtn = document.getElementById('services-btn');
+      var dropMenu = document.getElementById('services-menu');
+      var menuItems = dropMenu ? dropMenu.querySelectorAll('[role="menuitem"]') : [];
+
+      function openDropdown() {
+        dropdown.classList.add('open');
+        dropBtn.setAttribute('aria-expanded', 'true');
+      }
+      function closeDropdown() {
+        dropdown.classList.remove('open');
+        dropBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      if (dropBtn) {
+        dropBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.classList.contains('open') ? closeDropdown() : openDropdown();
+        });
+        dropBtn.addEventListener('keydown', function(e) {
+          if (e.key === 'ArrowDown') { e.preventDefault(); openDropdown(); if (menuItems[0]) menuItems[0].focus(); }
+          if (e.key === 'Escape') closeDropdown();
+        });
+      }
+      if (dropMenu) {
+        dropMenu.addEventListener('keydown', function(e) {
+          var focused = document.activeElement;
+          var idx = Array.prototype.indexOf.call(menuItems, focused);
+          if (e.key === 'ArrowDown') { e.preventDefault(); if (idx < menuItems.length - 1) menuItems[idx+1].focus(); }
+          if (e.key === 'ArrowUp') { e.preventDefault(); if (idx > 0) menuItems[idx-1].focus(); else { closeDropdown(); dropBtn.focus(); } }
+          if (e.key === 'Escape') { closeDropdown(); dropBtn.focus(); }
+          if (e.key === 'Tab') closeDropdown();
+        });
+      }
+      document.addEventListener('click', function(e) {
+        if (dropdown && !dropdown.contains(e.target)) closeDropdown();
+      });
+
+      // Hamburger
+      var hamburger = document.getElementById('hamburger-btn');
+      var mobileMenu = document.getElementById('mobile-menu');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+          var open = mobileMenu.classList.toggle('open');
+          hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+
+      // Mobile accordion
+      var mobileServicesBtn = document.getElementById('mobile-services-btn');
+      var mobileServicesSub = document.getElementById('mobile-services-sub');
+      if (mobileServicesBtn && mobileServicesSub) {
+        mobileServicesBtn.addEventListener('click', function() {
+          var open = mobileServicesSub.classList.toggle('open');
+          mobileServicesBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+    })();
+  </script>
 
   <!-- HERO -->
   <section class="hero">
@@ -526,20 +859,20 @@
       <div style="max-width:680px;">
         <div class="tagline-bar">
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="#4A7FBE"/></svg>
-          Serving Tampa Bay &amp; Surrounding Areas
+          Serving Miami &amp; Surrounding Areas
         </div>
 
         <h1>
-          Expert HVAC<br/>
-          <span>Solutions Built</span><br/>
-          to Last
+          Reliable HVAC<br/>
+          <span>Services in</span><br/>
+          Miami
         </h1>
 
         <p class="hero-sub" style="margin:1.5rem 0 2.25rem;">
-          Tapanes Enterprise LLC delivers professional air conditioning, HVAC, maintenance, and repair services throughout the Tampa Bay area — backed by certified technicians, honest pricing, and a satisfaction guarantee.
+          Serving Miami-area homes and businesses with honest, licensed HVAC installation, repair &amp; maintenance. Tapanes Enterprise LLC is fully licensed and insured.
         </p>
 
-        <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-bottom:3.5rem;">
+        <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-bottom:2.5rem;">
           <a href="#contact" class="btn-primary" style="font-size:1rem; padding:0.85rem 2rem;">
             Get a Free Estimate
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -550,24 +883,43 @@
           </a>
         </div>
 
-        <!-- Stats -->
-        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; max-width:460px;">
-          <div class="stat-card">
-            <div class="stat-num">15+</div>
-            <div class="stat-label">Years Experience</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num">500+</div>
-            <div class="stat-label">Jobs Completed</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num">100%</div>
-            <div class="stat-label">Satisfaction Goal</div>
-          </div>
+        <!-- Credibility badges -->
+        <div style="display:flex; flex-wrap:wrap; gap:0.65rem;">
+          <span style="display:inline-flex; align-items:center; gap:0.4rem; background:rgba(74,127,190,0.15); border:1px solid rgba(74,127,190,0.3); border-radius:100px; padding:0.35rem 0.9rem; font-size:0.78rem; font-weight:600; letter-spacing:0.05em; color:#a8c8f0; text-transform:uppercase;">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 1l2.09 4.26L15 6.27l-3.5 3.41.83 4.82L8 12.25l-4.33 2.25.83-4.82L1 6.27l4.91-.71L8 1z" fill="#4A7FBE"/></svg>
+            Licensed &amp; Insured
+          </span>
+          <span style="display:inline-flex; align-items:center; gap:0.4rem; background:rgba(74,127,190,0.15); border:1px solid rgba(74,127,190,0.3); border-radius:100px; padding:0.35rem 0.9rem; font-size:0.78rem; font-weight:600; letter-spacing:0.05em; color:#a8c8f0; text-transform:uppercase;">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 1l2.09 4.26L15 6.27l-3.5 3.41.83 4.82L8 12.25l-4.33 2.25.83-4.82L1 6.27l4.91-.71L8 1z" fill="#4A7FBE"/></svg>
+            EPA Certified
+          </span>
+          <span style="display:inline-flex; align-items:center; gap:0.4rem; background:rgba(74,127,190,0.15); border:1px solid rgba(74,127,190,0.3); border-radius:100px; padding:0.35rem 0.9rem; font-size:0.78rem; font-weight:600; letter-spacing:0.05em; color:#a8c8f0; text-transform:uppercase;">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 1l2.09 4.26L15 6.27l-3.5 3.41.83 4.82L8 12.25l-4.33 2.25.83-4.82L1 6.27l4.91-.71L8 1z" fill="#4A7FBE"/></svg>
+            Se Habla Español
+          </span>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- SERVICE AREAS TEASER STRIP -->
+  <div style="background:#fff; border-bottom:1px solid rgba(27,58,107,0.08);">
+    <div style="max-width:1200px; margin:0 auto; padding:1.1rem 1.5rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem;">
+      <div style="display:flex; align-items:center; gap:0.75rem;">
+        <div style="width:32px; height:32px; background:linear-gradient(135deg,#1B3A6B,#2E5FA3); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5a5 5 0 100 10A5 5 0 008 1.5zM8 8.5a1 1 0 110-2 1 1 0 010 2z" fill="rgba(255,255,255,0.4)"/><path d="M8 1.5a5 5 0 100 10" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M8 11.5V14.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </div>
+        <span style="font-size:0.9rem; color:#374151; line-height:1.5;">
+          <strong style="color:#1B3A6B; font-weight:700;">Serving Tampa Bay &amp; Surrounding Areas</strong>
+          <span style="color:#6B7280;"> — Brandon, Clearwater, St. Pete, Riverview, Lutz &amp; more.</span>
+        </span>
+      </div>
+      <a href="service-areas.html" style="display:inline-flex; align-items:center; gap:0.4rem; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#2E5FA3; text-decoration:none; white-space:nowrap; transition:color 0.18s ease;" onmouseover="this.style.color='#1B3A6B'" onmouseout="this.style.color='#2E5FA3'">
+        See where we work
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
 
   <!-- SERVICES -->
   <section id="services" style="padding:5.5rem 1.5rem; background:#f4f6fa;">
@@ -582,41 +934,47 @@
 
       <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;" class="services-grid">
 
-        <div class="service-card fade-up">
+        <a href="services/air-conditioning.html" class="service-card fade-up" style="text-decoration:none; display:block;">
           <div class="service-icon">❄️</div>
           <div class="service-title">Air Conditioning</div>
           <p class="service-desc">Installation, replacement, and tune-ups for all major AC brands. Keep your space cool and energy-efficient all year long.</p>
-        </div>
+          <div style="margin-top:1rem; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#2E5FA3; display:flex; align-items:center; gap:0.35rem;">Learn More <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
 
-        <div class="service-card fade-up">
+        <a href="services/heating-systems.html" class="service-card fade-up" style="text-decoration:none; display:block;">
           <div class="service-icon">🔥</div>
           <div class="service-title">Heating Systems</div>
           <p class="service-desc">Furnace and heat pump services to keep your home or business warm during the cooler months. Reliable, efficient heating solutions.</p>
-        </div>
+          <div style="margin-top:1rem; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#2E5FA3; display:flex; align-items:center; gap:0.35rem;">Learn More <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
 
-        <div class="service-card fade-up">
+        <a href="services/repairs-diagnostics.html" class="service-card fade-up" style="text-decoration:none; display:block;">
           <div class="service-icon">🔧</div>
           <div class="service-title">Repairs &amp; Diagnostics</div>
           <p class="service-desc">Fast, accurate diagnosis and repair of HVAC malfunctions. We fix it right the first time, minimizing downtime and discomfort.</p>
-        </div>
+          <div style="margin-top:1rem; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#2E5FA3; display:flex; align-items:center; gap:0.35rem;">Learn More <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
 
-        <div class="service-card fade-up">
+        <a href="services/preventive-maintenance.html" class="service-card fade-up" style="text-decoration:none; display:block;">
           <div class="service-icon">📋</div>
           <div class="service-title">Preventive Maintenance</div>
           <p class="service-desc">Scheduled maintenance plans that extend equipment life, reduce energy costs, and prevent costly breakdowns before they happen.</p>
-        </div>
+          <div style="margin-top:1rem; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#2E5FA3; display:flex; align-items:center; gap:0.35rem;">Learn More <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
 
-        <div class="service-card fade-up">
+        <a href="services/commercial-hvac.html" class="service-card fade-up" style="text-decoration:none; display:block;">
           <div class="service-icon">🏢</div>
           <div class="service-title">Commercial HVAC</div>
           <p class="service-desc">Scalable climate control solutions for offices, retail spaces, warehouses, and more. Minimal disruption to your operations.</p>
-        </div>
+          <div style="margin-top:1rem; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#2E5FA3; display:flex; align-items:center; gap:0.35rem;">Learn More <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
 
-        <div class="service-card fade-up">
+        <a href="services/residential-services.html" class="service-card fade-up" style="text-decoration:none; display:block;">
           <div class="service-icon">🏠</div>
           <div class="service-title">Residential Services</div>
           <p class="service-desc">Personalized HVAC solutions tailored to your home's layout and your family's comfort needs. Local, trusted, and dependable.</p>
-        </div>
+          <div style="margin-top:1rem; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#2E5FA3; display:flex; align-items:center; gap:0.35rem;">Learn More <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
 
       </div>
     </div>
@@ -793,6 +1151,291 @@
     </div>
   </section>
 
+  <!-- ABOUT US / MEET THE TEAM -->
+  <section id="about" style="padding:5.5rem 1.5rem; background:#f4f6fa;">
+    <div style="max-width:1200px; margin:0 auto;">
+
+      <!-- Section header -->
+      <div style="text-align:center; margin-bottom:3.5rem;" class="fade-up">
+        <div class="section-label" style="justify-content:center;">Our Story &amp; Team</div>
+        <h2 class="section-title">About Tapanes Enterprise</h2>
+        <p style="margin-top:0.85rem; color:#6B7280; font-size:1rem; line-height:1.75; max-width:580px; margin-left:auto; margin-right:auto;">
+          Tapanes Enterprise LLC was founded with a single mission: deliver honest, reliable HVAC service to the Miami area — no shortcuts, no surprises. Every technician on our team is fully licensed and insured, so you can trust that the job will be done safely and correctly, the first time.
+        </p>
+      </div>
+
+      <!-- Team grid -->
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; margin-bottom:4rem;" class="team-grid">
+
+        <div class="fade-up" style="text-align:center;">
+          <div style="position:relative; display:inline-block; margin-bottom:1.1rem;">
+            <img
+              src="https://placehold.co/220x220/1B3A6B/a8c8f0?text=AT"
+              alt="Alian Tapanes – Owner &amp; Lead Technician"
+              style="width:140px; height:140px; border-radius:50%; object-fit:cover; display:block; margin:0 auto; border:3px solid rgba(27,58,107,0.15); box-shadow:0 4px 20px rgba(27,58,107,0.18), 0 1px 4px rgba(0,0,0,0.1);"
+              width="220" height="220" loading="lazy"
+            />
+            <span style="position:absolute; bottom:4px; right:calc(50% - 70px + 4px); width:16px; height:16px; background:#22c55e; border:2px solid #f4f6fa; border-radius:50%;"></span>
+          </div>
+          <div style="font-family:'Oswald',sans-serif; font-size:1.1rem; font-weight:600; color:#1B3A6B; letter-spacing:0.01em;">Alian Tapanes</div>
+          <div style="font-size:0.83rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#2E5FA3; margin-top:0.25rem;">Owner &amp; Lead Technician</div>
+          <div style="font-size:0.85rem; color:#6B7280; margin-top:0.5rem; line-height:1.6;">Licensed &amp; Insured · EPA Certified</div>
+        </div>
+
+        <div class="fade-up" style="text-align:center;">
+          <div style="position:relative; display:inline-block; margin-bottom:1.1rem;">
+            <img
+              src="https://placehold.co/220x220/2E5FA3/e5e7eb?text=Tech"
+              alt="Certified Technician"
+              style="width:140px; height:140px; border-radius:50%; object-fit:cover; display:block; margin:0 auto; border:3px solid rgba(27,58,107,0.15); box-shadow:0 4px 20px rgba(27,58,107,0.18), 0 1px 4px rgba(0,0,0,0.1);"
+              width="220" height="220" loading="lazy"
+            />
+          </div>
+          <div style="font-family:'Oswald',sans-serif; font-size:1.1rem; font-weight:600; color:#1B3A6B; letter-spacing:0.01em;">Field Technician</div>
+          <div style="font-size:0.83rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#2E5FA3; margin-top:0.25rem;">Certified Technician</div>
+          <div style="font-size:0.85rem; color:#6B7280; margin-top:0.5rem; line-height:1.6;">Licensed &amp; Insured · HVAC Specialist</div>
+        </div>
+
+        <div class="fade-up" style="text-align:center;">
+          <div style="position:relative; display:inline-block; margin-bottom:1.1rem;">
+            <img
+              src="https://placehold.co/220x220/4A7FBE/e5e7eb?text=Tech"
+              alt="Certified Technician"
+              style="width:140px; height:140px; border-radius:50%; object-fit:cover; display:block; margin:0 auto; border:3px solid rgba(27,58,107,0.15); box-shadow:0 4px 20px rgba(27,58,107,0.18), 0 1px 4px rgba(0,0,0,0.1);"
+              width="220" height="220" loading="lazy"
+            />
+          </div>
+          <div style="font-family:'Oswald',sans-serif; font-size:1.1rem; font-weight:600; color:#1B3A6B; letter-spacing:0.01em;">Field Technician</div>
+          <div style="font-size:0.83rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#2E5FA3; margin-top:0.25rem;">Certified Technician</div>
+          <div style="font-size:0.85rem; color:#6B7280; margin-top:0.5rem; line-height:1.6;">Licensed &amp; Insured · HVAC Specialist</div>
+        </div>
+
+      </div>
+
+      <!-- Certification badges -->
+      <div class="fade-up" style="border-top:1px solid rgba(27,58,107,0.1); padding-top:3rem;">
+        <div style="text-align:center; margin-bottom:2rem;">
+          <div class="section-label" style="justify-content:center;">Credentials &amp; Trust Signals</div>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1.25rem;">
+
+          <!-- Licensed & Insured -->
+          <div style="display:flex; flex-direction:column; align-items:center; gap:0.65rem; background:#fff; border:1px solid rgba(27,58,107,0.1); border-radius:10px; padding:1.35rem 1.6rem; min-width:130px; box-shadow:0 2px 10px rgba(27,58,107,0.07);">
+            <div style="width:48px; height:48px; background:linear-gradient(135deg,#1B3A6B,#2E5FA3); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C17.5 22.15 21 17.25 21 12V6L12 2z" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:#1B3A6B; text-align:center; line-height:1.3;">Licensed<br/>&amp; Insured</div>
+          </div>
+
+          <!-- EPA Certified -->
+          <div style="display:flex; flex-direction:column; align-items:center; gap:0.65rem; background:#fff; border:1px solid rgba(27,58,107,0.1); border-radius:10px; padding:1.35rem 1.6rem; min-width:130px; box-shadow:0 2px 10px rgba(27,58,107,0.07);">
+            <div style="width:48px; height:48px; background:linear-gradient(135deg,#1B3A6B,#2E5FA3); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.75"/>
+                <path d="M9 12h6M9 9h6M9 15h4" stroke="#fff" stroke-width="1.75" stroke-linecap="round"/>
+                <path d="M15 3.5C16.5 5 17 6.5 17 8c0 2.5-2 4-5 4s-5-1.5-5-4c0-1.5.5-3 2-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:#1B3A6B; text-align:center; line-height:1.3;">EPA<br/>Certified</div>
+          </div>
+
+          <!-- NATE Certified -->
+          <div style="display:flex; flex-direction:column; align-items:center; gap:0.65rem; background:#fff; border:1px solid rgba(27,58,107,0.1); border-radius:10px; padding:1.35rem 1.6rem; min-width:130px; box-shadow:0 2px 10px rgba(27,58,107,0.07);">
+            <div style="width:48px; height:48px; background:linear-gradient(135deg,#1B3A6B,#2E5FA3); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" fill="rgba(255,255,255,0.15)"/>
+              </svg>
+            </div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:#1B3A6B; text-align:center; line-height:1.3;">NATE<br/>Certified</div>
+          </div>
+
+          <!-- Fully Bonded -->
+          <div style="display:flex; flex-direction:column; align-items:center; gap:0.65rem; background:#fff; border:1px solid rgba(27,58,107,0.1); border-radius:10px; padding:1.35rem 1.6rem; min-width:130px; box-shadow:0 2px 10px rgba(27,58,107,0.07);">
+            <div style="width:48px; height:48px; background:linear-gradient(135deg,#1B3A6B,#2E5FA3); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="11" width="18" height="11" rx="2" stroke="#fff" stroke-width="1.75"/>
+                <path d="M7 11V7a5 5 0 0110 0v4" stroke="#fff" stroke-width="1.75" stroke-linecap="round"/>
+                <circle cx="12" cy="16" r="1.5" fill="#fff"/>
+              </svg>
+            </div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:#1B3A6B; text-align:center; line-height:1.3;">Fully<br/>Bonded</div>
+          </div>
+
+          <!-- Se Habla Español -->
+          <div style="display:flex; flex-direction:column; align-items:center; gap:0.65rem; background:#fff; border:1px solid rgba(27,58,107,0.1); border-radius:10px; padding:1.35rem 1.6rem; min-width:130px; box-shadow:0 2px 10px rgba(27,58,107,0.07);">
+            <div style="width:48px; height:48px; background:linear-gradient(135deg,#1B3A6B,#2E5FA3); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:#1B3A6B; text-align:center; line-height:1.3;">Se Habla<br/>Español</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    @media (max-width: 768px) {
+      .team-grid { grid-template-columns: 1fr !important; }
+    }
+    @media (min-width: 769px) and (max-width: 900px) {
+      .team-grid { grid-template-columns: repeat(2,1fr) !important; }
+    }
+  </style>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding:5.5rem 1.5rem; background:#f4f6fa;">
+    <div style="max-width:760px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:3rem;" class="fade-up">
+        <div class="section-label" style="justify-content:center;">Common Questions</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p style="margin-top:0.75rem; color:#6B7280; font-size:1rem; line-height:1.7;">
+          Can't find your answer? Call us at <a href="tel:+18135781529" style="color:#2E5FA3; font-weight:600; text-decoration:none;">813-578-1529</a> — we're happy to help.
+        </p>
+      </div>
+
+      <div class="faq-list fade-up" role="list">
+
+        <details class="faq-item" role="listitem">
+          <summary class="faq-question" aria-expanded="false">
+            <span>How often should I schedule HVAC maintenance?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </summary>
+          <div class="faq-answer">
+            We recommend scheduling maintenance at least twice a year — once in the spring before the summer cooling season, and once in the fall before the heating season. Regular tune-ups keep your system running efficiently, catch small problems before they become costly repairs, and help extend the lifespan of your equipment.
+          </div>
+        </details>
+
+        <details class="faq-item" role="listitem">
+          <summary class="faq-question" aria-expanded="false">
+            <span>Do you offer emergency HVAC services?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </summary>
+          <div class="faq-answer">
+            Yes — we offer emergency HVAC services for both residential and commercial clients throughout the Tampa Bay area. When your system goes down unexpectedly, our team responds as quickly as possible, typically within a few hours. Call us directly at <a href="tel:+18135781529" style="color:#2E5FA3; font-weight:600; text-decoration:none;">813-578-1529</a> and we'll dispatch a technician right away.
+          </div>
+        </details>
+
+        <details class="faq-item" role="listitem">
+          <summary class="faq-question" aria-expanded="false">
+            <span>Which HVAC brands do you service?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </summary>
+          <div class="faq-answer">
+            We are trained and certified to service all major HVAC brands, including Carrier, Trane, Lennox, Rheem, Goodman, Daikin, American Standard, Bryant, and more. If you own it, we can service it — regardless of the make, model, or age of your equipment.
+          </div>
+        </details>
+
+        <details class="faq-item" role="listitem">
+          <summary class="faq-question" aria-expanded="false">
+            <span>What are signs my AC needs repair?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </summary>
+          <div class="faq-answer">
+            Watch for these common warning signs: weak or inconsistent airflow from the vents, unusual noises like banging, rattling, or squealing, warm air blowing instead of cool, unexplained spikes in your energy bills, frequent on/off cycling, or ice buildup on the unit. If you notice any of these, it's best to have a technician diagnose the system before a small issue becomes a major breakdown.
+          </div>
+        </details>
+
+        <details class="faq-item" role="listitem">
+          <summary class="faq-question" aria-expanded="false">
+            <span>Do you offer financing options for installations?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </summary>
+          <div class="faq-answer">
+            We understand that a new HVAC system is a significant investment. We offer flexible payment options and can discuss financing arrangements to help make your installation or replacement more affordable. Contact us for details — we'll find a plan that works for your budget.
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(27, 58, 107, 0.1);
+      box-shadow: 0 2px 12px rgba(27, 58, 107, 0.07), 0 8px 32px rgba(27, 58, 107, 0.04);
+    }
+
+    .faq-item {
+      background: #fff;
+      border-bottom: 1px solid rgba(27, 58, 107, 0.09);
+    }
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.35rem 1.75rem;
+      cursor: pointer;
+      list-style: none;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: #1B3A6B;
+      user-select: none;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-question::marker { display: none; }
+
+    .faq-question:hover {
+      background: rgba(27, 58, 107, 0.03);
+      color: #2E5FA3;
+    }
+    .faq-question:focus-visible {
+      outline: 2px solid #4A7FBE;
+      outline-offset: -2px;
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      color: #2E5FA3;
+      transition: transform 0.25s cubic-bezier(0.34, 1.3, 0.64, 1);
+      display: flex;
+      align-items: center;
+    }
+
+    details[open] > .faq-question { color: #2E5FA3; }
+    details[open] > .faq-question .faq-icon { transform: rotate(180deg); }
+    details[open] > .faq-question { border-bottom: 1px solid rgba(27, 58, 107, 0.09); background: rgba(27, 58, 107, 0.02); }
+
+    .faq-answer {
+      padding: 1.1rem 1.75rem 1.5rem;
+      font-size: 0.94rem;
+      line-height: 1.75;
+      color: #4B5563;
+    }
+
+    @media (max-width: 600px) {
+      .faq-question { padding: 1.1rem 1.25rem; font-size: 0.97rem; }
+      .faq-answer { padding: 0.9rem 1.25rem 1.25rem; }
+    }
+  </style>
+
   <!-- CTA / CONTACT -->
   <section id="contact" class="cta-section" style="padding:5.5rem 1.5rem;">
     <div style="position:relative; z-index:2; max-width:700px; margin:0 auto; text-align:center;" class="fade-up">
@@ -818,36 +1461,60 @@
 
       <!-- Simple form -->
       <form style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:2rem; text-align:left; backdrop-filter:blur(10px);" onsubmit="handleSubmit(event)">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;" class="cta-form-row">
           <div>
-            <label style="display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(229,231,235,0.6); margin-bottom:0.4rem;">Full Name</label>
-            <input type="text" placeholder="John Smith" required style="width:100%; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.65rem 0.9rem; color:#fff; font-size:0.93rem; font-family:'Raleway',sans-serif; outline:none; transition:border-color 0.18s ease; box-sizing:border-box;" onfocus="this.style.borderColor='rgba(74,127,190,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'" />
+            <label for="h-name" style="display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(229,231,235,0.6); margin-bottom:0.4rem;">Full Name *</label>
+            <input id="h-name" type="text" placeholder="John Smith" required style="width:100%; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.65rem 0.9rem; color:#fff; font-size:0.93rem; font-family:'Raleway',sans-serif; outline:none; transition:border-color 0.18s ease; box-sizing:border-box;" onfocus="this.style.borderColor='rgba(74,127,190,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'" />
           </div>
           <div>
-            <label style="display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(229,231,235,0.6); margin-bottom:0.4rem;">Phone Number</label>
-            <input type="tel" placeholder="(305) 000-0000" style="width:100%; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.65rem 0.9rem; color:#fff; font-size:0.93rem; font-family:'Raleway',sans-serif; outline:none; transition:border-color 0.18s ease; box-sizing:border-box;" onfocus="this.style.borderColor='rgba(74,127,190,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'" />
+            <label for="h-phone" style="display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(229,231,235,0.6); margin-bottom:0.4rem;">Phone Number</label>
+            <input id="h-phone" type="tel" placeholder="(813) 000-0000" style="width:100%; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.65rem 0.9rem; color:#fff; font-size:0.93rem; font-family:'Raleway',sans-serif; outline:none; transition:border-color 0.18s ease; box-sizing:border-box;" onfocus="this.style.borderColor='rgba(74,127,190,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'" />
           </div>
         </div>
         <div style="margin-bottom:1rem;">
-          <label style="display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(229,231,235,0.6); margin-bottom:0.4rem;">Service Needed</label>
-          <select style="width:100%; background:rgba(20,40,80,0.9); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.65rem 0.9rem; color:rgba(229,231,235,0.85); font-size:0.93rem; font-family:'Raleway',sans-serif; outline:none; transition:border-color 0.18s ease; box-sizing:border-box;" onfocus="this.style.borderColor='rgba(74,127,190,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
+          <label for="h-email" style="display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(229,231,235,0.6); margin-bottom:0.4rem;">Email Address *</label>
+          <input id="h-email" type="email" placeholder="you@example.com" required style="width:100%; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.65rem 0.9rem; color:#fff; font-size:0.93rem; font-family:'Raleway',sans-serif; outline:none; transition:border-color 0.18s ease; box-sizing:border-box;" onfocus="this.style.borderColor='rgba(74,127,190,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'" />
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label for="h-service" style="display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(229,231,235,0.6); margin-bottom:0.4rem;">Service Required</label>
+          <select id="h-service" style="width:100%; background:rgba(20,40,80,0.9); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.65rem 0.9rem; color:rgba(229,231,235,0.85); font-size:0.93rem; font-family:'Raleway',sans-serif; outline:none; transition:border-color 0.18s ease; box-sizing:border-box;" onfocus="this.style.borderColor='rgba(74,127,190,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
             <option value="">Select a service...</option>
             <option>AC Installation / Replacement</option>
             <option>AC Repair</option>
             <option>Heating System Service</option>
             <option>Preventive Maintenance</option>
             <option>Commercial HVAC</option>
+            <option>Emergency Service</option>
             <option>Other / Not Sure</option>
           </select>
         </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;" class="cta-form-row">
+          <div>
+            <label for="h-pref" style="display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(229,231,235,0.6); margin-bottom:0.4rem;">Preferred Contact</label>
+            <select id="h-pref" style="width:100%; background:rgba(20,40,80,0.9); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.65rem 0.9rem; color:rgba(229,231,235,0.85); font-size:0.93rem; font-family:'Raleway',sans-serif; outline:none; transition:border-color 0.18s ease; box-sizing:border-box;" onfocus="this.style.borderColor='rgba(74,127,190,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
+              <option value="">Choose one...</option>
+              <option value="call">Phone Call</option>
+              <option value="text">Text Message</option>
+              <option value="email">Email</option>
+            </select>
+          </div>
+          <div>
+            <label for="h-date" style="display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(229,231,235,0.6); margin-bottom:0.4rem;">Preferred Date</label>
+            <input id="h-date" type="date" style="width:100%; background:rgba(20,40,80,0.9); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.65rem 0.9rem; color:rgba(229,231,235,0.85); font-size:0.93rem; font-family:'Raleway',sans-serif; outline:none; transition:border-color 0.18s ease; box-sizing:border-box;" onfocus="this.style.borderColor='rgba(74,127,190,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'" />
+          </div>
+        </div>
         <div style="margin-bottom:1.5rem;">
-          <label style="display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(229,231,235,0.6); margin-bottom:0.4rem;">Message (Optional)</label>
-          <textarea placeholder="Tell us a bit about your situation..." rows="3" style="width:100%; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.65rem 0.9rem; color:#fff; font-size:0.93rem; font-family:'Raleway',sans-serif; outline:none; transition:border-color 0.18s ease; resize:vertical; box-sizing:border-box;" onfocus="this.style.borderColor='rgba(74,127,190,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'"></textarea>
+          <label for="h-message" style="display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(229,231,235,0.6); margin-bottom:0.4rem;">Message</label>
+          <textarea id="h-message" placeholder="Tell us a bit about your situation..." rows="3" style="width:100%; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:0.65rem 0.9rem; color:#fff; font-size:0.93rem; font-family:'Raleway',sans-serif; outline:none; transition:border-color 0.18s ease; resize:vertical; box-sizing:border-box;" onfocus="this.style.borderColor='rgba(74,127,190,0.7)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'"></textarea>
         </div>
         <button type="submit" class="btn-primary" style="width:100%; justify-content:center; font-size:1rem; padding:0.9rem 2rem;">
           Send My Request
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
+        <p style="margin-top:1rem; text-align:center; font-size:0.82rem; color:rgba(229,231,235,0.45);">
+          Proudly serving Tampa Bay and surrounding areas.
+          <a href="contact.html" style="color:rgba(168,200,240,0.8); text-decoration:none; font-weight:600; margin-left:0.35rem;">Full contact page →</a>
+        </p>
       </form>
     </div>
   </section>
@@ -858,7 +1525,7 @@
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2.5rem; margin-bottom:3rem;">
 
         <div style="grid-column:span 1;">
-          <img src="Brand_Assets/Logo.png" alt="Tapanes Enterprise LLC" style="height:52px; width:auto; margin-bottom:1rem; filter:brightness(0) invert(1); opacity:0.85;" />
+          <img src="Brand_Assets/Logo.png" alt="Tapanes Enterprise LLC" style="height:52px; width:auto; margin-bottom:1rem; filter:brightness(0) invert(1); opacity:0.85;" width="200" height="52" loading="lazy" />
           <p style="font-size:0.88rem; line-height:1.7; color:rgba(229,231,235,0.5); max-width:240px;">
             Service. Solutions. Strength You Can Count On. — Proudly serving Tampa Bay and surrounding areas.
           </p>
@@ -870,18 +1537,23 @@
 
         <div>
           <div class="footer-heading">Services</div>
-          <a href="#services" class="footer-link">Air Conditioning</a>
-          <a href="#services" class="footer-link">Heating Systems</a>
-          <a href="#services" class="footer-link">Repairs &amp; Diagnostics</a>
-          <a href="#services" class="footer-link">Preventive Maintenance</a>
-          <a href="#services" class="footer-link">Commercial HVAC</a>
+          <a href="services/air-conditioning.html" class="footer-link">Air Conditioning</a>
+          <a href="services/heating-systems.html" class="footer-link">Heating Systems</a>
+          <a href="services/repairs-diagnostics.html" class="footer-link">Repairs &amp; Diagnostics</a>
+          <a href="services/preventive-maintenance.html" class="footer-link">Preventive Maintenance</a>
+          <a href="services/commercial-hvac.html" class="footer-link">Commercial HVAC</a>
+          <a href="services/residential-services.html" class="footer-link">Residential Services</a>
         </div>
 
         <div>
           <div class="footer-heading">Company</div>
           <a href="#why-us" class="footer-link">Why Choose Us</a>
           <a href="#process" class="footer-link">Our Process</a>
+          <a href="#faq" class="footer-link">FAQ</a>
+          <a href="service-areas.html" class="footer-link">Service Areas</a>
           <a href="#contact" class="footer-link">Get a Quote</a>
+          <a href="blog/index.html" class="footer-link">Blog</a>
+          <a href="contact.html" class="footer-link">Contact Us</a>
         </div>
 
         <div>
@@ -910,6 +1582,12 @@
       </div>
     </div>
   </footer>
+
+  <style>
+    @media (max-width: 560px) {
+      .cta-form-row { grid-template-columns: 1fr !important; }
+    }
+  </style>
 
   <script>
     // Scroll fade-in
