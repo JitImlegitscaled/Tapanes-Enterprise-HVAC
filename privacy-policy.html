@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Tapanes Enterprise LLC | Tampa Bay HVAC</title>
+  <meta name="description" content="Tapanes Enterprise LLC privacy policy. Learn how we collect, use, and protect your personal information." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1B3A6B;
+      --corp-blue: #2E5FA3;
+      --mid-blue: #4A7FBE;
+      --steel: #6B7280;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: 'Raleway', sans-serif; background-color: #f8f9fb; color: #1a2333; margin: 0; }
+    h1, h2, h3, h4 { font-family: 'Oswald', sans-serif; letter-spacing: -0.02em; }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 1000; background: rgba(27,58,107,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(74,127,190,0.25); box-shadow: 0 4px 24px rgba(27,58,107,0.35), 0 1px 4px rgba(0,0,0,0.2); }
+    .nav-link { font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(229,231,235,0.85); padding: 0.35rem 0; position: relative; transition: color 0.2s ease; text-decoration: none; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #4A7FBE; transition: width 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+    .nav-link:hover { color: #fff; } .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: #fff; } .nav-link.active::after { width: 100%; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-toggle { font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(229,231,235,0.85); background: none; border: none; cursor: pointer; padding: 0.35rem 0; position: relative; transition: color 0.2s ease; display: inline-flex; align-items: center; gap: 0.3rem; }
+    .nav-dropdown-toggle::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #4A7FBE; transition: width 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+    .nav-dropdown-toggle:hover { color: #fff; } .nav-dropdown-toggle:hover::after { width: 100%; }
+    .nav-dropdown-toggle:focus-visible { outline: 2px solid #4A7FBE; outline-offset: 3px; border-radius: 2px; }
+    .nav-dropdown-toggle[aria-expanded="true"] { color: #fff; } .nav-dropdown-toggle[aria-expanded="true"]::after { width: 100%; }
+    .dropdown-chevron { width: 10px; height: 10px; transition: transform 0.2s ease; flex-shrink: 0; }
+    .nav-dropdown-toggle[aria-expanded="true"] .dropdown-chevron { transform: rotate(180deg); }
+    .nav-dropdown-menu { position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 230px; background: #0f2242; border: 1px solid rgba(74,127,190,0.25); border-radius: 8px; box-shadow: 0 12px 40px rgba(0,0,0,0.35), 0 4px 12px rgba(27,58,107,0.4); padding: 0.5rem 0; opacity: 0; visibility: hidden; transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.34,1.56,0.64,1), visibility 0s 0.18s; z-index: 200; list-style: none; margin: 0; }
+    .nav-dropdown-menu::before { content: ''; position: absolute; top: -5px; left: 50%; transform: translateX(-50%); width: 10px; height: 10px; background: #0f2242; border-left: 1px solid rgba(74,127,190,0.25); border-top: 1px solid rgba(74,127,190,0.25); rotate: 45deg; }
+    .nav-dropdown.open .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.34,1.56,0.64,1); }
+    .dropdown-item { display: flex; align-items: center; gap: 0.6rem; padding: 0.6rem 1.1rem; font-family: 'Raleway', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; color: rgba(229,231,235,0.8); text-decoration: none; transition: background 0.15s ease, color 0.15s ease; white-space: nowrap; }
+    .dropdown-item:hover { background: rgba(74,127,190,0.12); color: #fff; }
+    .dropdown-item:focus-visible { outline: 2px solid #4A7FBE; outline-offset: -2px; background: rgba(74,127,190,0.12); color: #fff; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 6px; border-radius: 6px; transition: background 0.18s ease; }
+    .hamburger:hover { background: rgba(74,127,190,0.15); } .hamburger:focus-visible { outline: 2px solid #4A7FBE; outline-offset: 2px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: rgba(229,231,235,0.9); border-radius: 2px; transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.18s ease; transform-origin: center; }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; background: #0a1829; border-top: 1px solid rgba(74,127,190,0.2); padding: 0.75rem 0 1rem; }
+    .mobile-menu.open { display: block; }
+    .mobile-nav-link { display: block; font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(229,231,235,0.8); text-decoration: none; padding: 0.75rem 1.5rem; transition: background 0.15s ease, color 0.15s ease; }
+    .mobile-nav-link:hover, .mobile-nav-link:focus-visible { background: rgba(74,127,190,0.1); color: #fff; outline: none; }
+    .mobile-accordion-btn { display: flex; align-items: center; justify-content: space-between; width: 100%; background: none; border: none; font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(229,231,235,0.8); padding: 0.75rem 1.5rem; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; }
+    .mobile-accordion-btn:hover, .mobile-accordion-btn:focus-visible { background: rgba(74,127,190,0.1); color: #fff; outline: none; }
+    .mobile-sub { display: none; background: rgba(74,127,190,0.06); }
+    .mobile-sub.open { display: block; }
+    .mobile-sub-link { display: flex; align-items: center; gap: 0.6rem; padding: 0.6rem 2rem; font-family: 'Raleway', sans-serif; font-size: 0.85rem; font-weight: 600; color: rgba(229,231,235,0.7); text-decoration: none; transition: color 0.15s ease; }
+    .mobile-sub-link:hover { color: #fff; }
+    .mobile-cta-wrap { padding: 0.75rem 1.5rem 0.25rem; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #2E5FA3, #1B3A6B); color: #fff; font-family: 'Raleway', sans-serif; font-weight: 700; letter-spacing: 0.04em; border-radius: 6px; border: none; cursor: pointer; text-decoration: none; transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.34,1.3,0.64,1), box-shadow 0.18s ease; box-shadow: 0 2px 8px rgba(27,58,107,0.35), 0 8px 24px rgba(27,58,107,0.2); }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(27,58,107,0.4), 0 12px 32px rgba(27,58,107,0.25); }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:focus-visible { outline: 2px solid #4A7FBE; outline-offset: 3px; }
+    @media (max-width: 900px) { .nav-desktop { display: none !important; } .hamburger { display: flex !important; } }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(46,95,163,0.2) 0%, transparent 65%), linear-gradient(155deg, #0d1f3c 0%, #1B3A6B 55%, #1d3a6e 100%);
+      position: relative; overflow: hidden; padding: 5rem 1.5rem 4.5rem;
+    }
+    .page-hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(74,127,190,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(74,127,190,0.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4A7FBE; margin-bottom: 0.85rem; }
+    .section-label span { display: inline-block; width: 8px; height: 8px; background: #4A7FBE; border-radius: 2px; }
+
+    /* CONTENT */
+    .prose h2 { font-family: 'Oswald', sans-serif; font-size: 1.35rem; font-weight: 700; color: #1B3A6B; margin: 2.25rem 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 2px solid rgba(27,58,107,0.08); }
+    .prose h3 { font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 600; color: #2E5FA3; margin: 1.5rem 0 0.5rem; }
+    .prose p { font-size: 0.96rem; line-height: 1.8; color: #374151; margin: 0 0 1rem; }
+    .prose ul { margin: 0.5rem 0 1rem 1.25rem; }
+    .prose ul li { font-size: 0.96rem; line-height: 1.8; color: #374151; margin-bottom: 0.35rem; }
+    .prose a { color: #2E5FA3; font-weight: 600; text-decoration: none; }
+    .prose a:hover { text-decoration: underline; }
+    .prose strong { color: #1B3A6B; }
+
+    /* FOOTER */
+    footer { background: #080f1c; color: rgba(229,231,235,0.6); }
+    .footer-heading { font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.82rem; color: rgba(229,231,235,0.45); margin-bottom: 1rem; }
+    .footer-link { display: block; font-size: 0.9rem; color: rgba(229,231,235,0.65); text-decoration: none; margin-bottom: 0.5rem; transition: color 0.18s ease; }
+    .footer-link:hover { color: #4A7FBE; }
+    .footer-link:focus-visible { outline: 2px solid #4A7FBE; outline-offset: 2px; }
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(74,127,190,0.3), transparent); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav aria-label="Main navigation">
+    <div style="max-width:1200px; margin:0 auto; padding:0 1.5rem;">
+      <div style="display:flex; align-items:center; justify-content:space-between; height:70px;">
+        <a href="index.html" style="display:flex; align-items:center; gap:0.75rem; text-decoration:none; flex-shrink:0;" aria-label="Tapanes Enterprise LLC — Home">
+          <img src="Brand_Assets/Logo.png" alt="Tapanes Enterprise LLC" style="height:54px; width:auto; display:block;" width="200" height="54" fetchpriority="high" />
+        </a>
+        <div class="nav-desktop" style="display:flex; align-items:center; gap:2rem;">
+          <a href="index.html" class="nav-link">Home</a>
+          <div class="nav-dropdown" id="nav-dropdown-services">
+            <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="services-menu" id="services-btn">
+              Services
+              <svg class="dropdown-chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <ul class="nav-dropdown-menu" id="services-menu" role="menu" aria-labelledby="services-btn">
+              <li role="none"><a href="services/air-conditioning.html" class="dropdown-item" role="menuitem"><span>❄️</span>Air Conditioning</a></li>
+              <li role="none"><a href="services/heating-systems.html" class="dropdown-item" role="menuitem"><span>🔥</span>Heating Systems</a></li>
+              <li role="none"><a href="services/repairs-diagnostics.html" class="dropdown-item" role="menuitem"><span>🔧</span>Repairs &amp; Diagnostics</a></li>
+              <li role="none"><a href="services/preventive-maintenance.html" class="dropdown-item" role="menuitem"><span>🛡️</span>Preventive Maintenance</a></li>
+              <li role="none"><a href="services/commercial-hvac.html" class="dropdown-item" role="menuitem"><span>🏢</span>Commercial HVAC</a></li>
+              <li role="none"><a href="services/residential-services.html" class="dropdown-item" role="menuitem"><span>🏠</span>Residential Services</a></li>
+            </ul>
+          </div>
+          <a href="service-areas.html" class="nav-link">Service Areas</a>
+          <a href="index.html#about" class="nav-link">About Us</a>
+          <a href="blog/index.html" class="nav-link">Blog</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="contact.html" class="btn-primary" style="font-size:0.82rem; padding:0.55rem 1.4rem; margin-left:0.5rem;" aria-label="Get a Free Estimate">
+            Get a Free Estimate
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <button class="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu" id="hamburger-btn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <button class="mobile-accordion-btn" aria-expanded="false" aria-controls="mobile-services-sub" id="mobile-services-btn">
+          Services
+          <svg width="14" height="14" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mobile-sub" id="mobile-services-sub" role="list">
+          <a href="services/air-conditioning.html" class="mobile-sub-link" role="listitem"><span>❄️</span>Air Conditioning</a>
+          <a href="services/heating-systems.html" class="mobile-sub-link" role="listitem"><span>🔥</span>Heating Systems</a>
+          <a href="services/repairs-diagnostics.html" class="mobile-sub-link" role="listitem"><span>🔧</span>Repairs &amp; Diagnostics</a>
+          <a href="services/preventive-maintenance.html" class="mobile-sub-link" role="listitem"><span>🛡️</span>Preventive Maintenance</a>
+          <a href="services/commercial-hvac.html" class="mobile-sub-link" role="listitem"><span>🏢</span>Commercial HVAC</a>
+          <a href="services/residential-services.html" class="mobile-sub-link" role="listitem"><span>🏠</span>Residential Services</a>
+        </div>
+        <a href="service-areas.html" class="mobile-nav-link">Service Areas</a>
+        <a href="index.html#about" class="mobile-nav-link">About Us</a>
+        <a href="blog/index.html" class="mobile-nav-link">Blog</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+        <div class="mobile-cta-wrap">
+          <a href="contact.html" class="btn-primary" style="width:100%; justify-content:center; font-size:0.9rem; padding:0.8rem 1.5rem;">
+            Get a Free Estimate
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script>
+    (function() {
+      var dropdown = document.getElementById('nav-dropdown-services');
+      var dropBtn = document.getElementById('services-btn');
+      var dropMenu = document.getElementById('services-menu');
+      var menuItems = dropMenu ? dropMenu.querySelectorAll('[role="menuitem"]') : [];
+      function openDD() { dropdown.classList.add('open'); dropBtn.setAttribute('aria-expanded','true'); }
+      function closeDD() { dropdown.classList.remove('open'); dropBtn.setAttribute('aria-expanded','false'); }
+      if (dropBtn) {
+        dropBtn.addEventListener('click', function(e) { e.stopPropagation(); dropdown.classList.contains('open') ? closeDD() : openDD(); });
+        dropBtn.addEventListener('keydown', function(e) { if (e.key==='ArrowDown'){e.preventDefault();openDD();if(menuItems[0])menuItems[0].focus();} if(e.key==='Escape')closeDD(); });
+      }
+      if (dropMenu) {
+        dropMenu.addEventListener('keydown', function(e) {
+          var focused = document.activeElement;
+          var idx = Array.prototype.indexOf.call(menuItems, focused);
+          if (e.key==='ArrowDown'){e.preventDefault();if(idx<menuItems.length-1)menuItems[idx+1].focus();}
+          if (e.key==='ArrowUp'){e.preventDefault();if(idx>0)menuItems[idx-1].focus();else{closeDD();dropBtn.focus();}}
+          if (e.key==='Escape'){closeDD();dropBtn.focus();}
+          if (e.key==='Tab')closeDD();
+        });
+      }
+      document.addEventListener('click', function(e) { if (dropdown && !dropdown.contains(e.target)) closeDD(); });
+      var hamburger = document.getElementById('hamburger-btn');
+      var mobileMenu = document.getElementById('mobile-menu');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+          var open = mobileMenu.classList.toggle('open');
+          hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+      var mobileServicesBtn = document.getElementById('mobile-services-btn');
+      var mobileServicesSub = document.getElementById('mobile-services-sub');
+      if (mobileServicesBtn && mobileServicesSub) {
+        mobileServicesBtn.addEventListener('click', function() {
+          var open = mobileServicesSub.classList.toggle('open');
+          mobileServicesBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+    })();
+  </script>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-grid" aria-hidden="true"></div>
+    <div style="position:relative; z-index:2; max-width:800px; margin:0 auto;">
+      <div class="section-label" style="color:#a8c8f0;">
+        <span style="background:#4A7FBE;"></span>
+        Legal
+      </div>
+      <h1 style="font-family:'Oswald',sans-serif; font-size:clamp(2rem,5vw,3rem); font-weight:700; color:#fff; margin:0 0 1rem; letter-spacing:-0.025em;">Privacy Policy</h1>
+      <p style="color:rgba(229,231,235,0.7); font-size:1rem; line-height:1.7; max-width:560px;">
+        Tapanes Enterprise LLC is committed to protecting your personal information. This policy explains what we collect, how we use it, and your rights.
+      </p>
+      <p style="color:rgba(229,231,235,0.45); font-size:0.85rem; margin-top:1rem;">Last updated: June 9, 2026</p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <main style="padding:4rem 1.5rem 6rem; background:#f8f9fb;">
+    <div style="max-width:800px; margin:0 auto;">
+
+      <!-- Intro card -->
+      <div style="background:#fff; border-radius:14px; padding:2rem 2.5rem; border:1px solid rgba(27,58,107,0.08); box-shadow:0 4px 20px rgba(27,58,107,0.07), 0 16px 48px rgba(27,58,107,0.03); margin-bottom:2.5rem;">
+        <div style="display:flex; align-items:flex-start; gap:1rem;">
+          <div style="width:44px; height:44px; background:linear-gradient(135deg,#1B3A6B,#2E5FA3); border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:0.2rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h2 style="font-family:'Oswald',sans-serif; font-size:1.15rem; font-weight:700; color:#1B3A6B; margin:0 0 0.5rem;">Our Commitment to You</h2>
+            <p style="font-size:0.93rem; color:#4B5563; line-height:1.75; margin:0;">
+              We collect only the information needed to serve you well. We do not sell, rent, or share your personal data with third parties for marketing purposes. Your information is used solely to respond to your inquiries and provide HVAC services.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prose">
+
+        <h2>1. Who We Are</h2>
+        <p>
+          Tapanes Enterprise LLC ("we," "us," or "our") is a licensed HVAC contractor serving the Tampa Bay area. Our contact information:
+        </p>
+        <ul>
+          <li><strong>Phone:</strong> <a href="tel:+18135781529">813-578-1529</a></li>
+          <li><strong>Email:</strong> <a href="mailto:Tapanesenterprise@gmail.com">Tapanesenterprise@gmail.com</a></li>
+          <li><strong>Service Area:</strong> Tampa Bay and surrounding areas, Florida</li>
+        </ul>
+
+        <h2>2. Information We Collect</h2>
+        <p>We may collect the following personal information when you contact us through our website forms, phone, or email:</p>
+        <ul>
+          <li><strong>Name</strong> — to address you properly and create service records</li>
+          <li><strong>Phone number</strong> — to contact you regarding your service request</li>
+          <li><strong>Email address</strong> — to send you estimates, confirmations, and follow-ups</li>
+          <li><strong>Service address</strong> — to dispatch our technicians to your location</li>
+          <li><strong>Service details</strong> — information about your HVAC equipment or issue so we can prepare appropriately</li>
+          <li><strong>Preferred contact method and availability</strong> — to schedule at a time convenient for you</li>
+        </ul>
+
+        <h3>Automatically Collected Information</h3>
+        <p>
+          If we use analytics tools (such as Google Analytics), our website may automatically collect non-personally-identifiable information such as your browser type, pages visited, and approximate geographic region. This data helps us understand how visitors use our site and improve the experience. It does not identify you personally.
+        </p>
+
+        <h3>Cookies</h3>
+        <p>
+          Our website may use cookies for analytics purposes (e.g., Google Analytics). You can disable cookies in your browser settings at any time. Disabling cookies will not affect your ability to use the site or contact us.
+        </p>
+
+        <h2>3. How We Use Your Information</h2>
+        <p>The personal information you provide is used only for the following purposes:</p>
+        <ul>
+          <li>Responding to your service inquiries and requests</li>
+          <li>Scheduling HVAC service appointments</li>
+          <li>Providing written estimates and invoices</li>
+          <li>Following up on completed service to ensure your satisfaction</li>
+          <li>Contacting you about your preferred scheduling times</li>
+        </ul>
+        <p>
+          We do <strong>not</strong> use your information for unsolicited marketing, spam, or any purpose unrelated to the HVAC services you requested.
+        </p>
+
+        <h2>4. How We Protect Your Information</h2>
+        <p>
+          We take reasonable steps to protect your personal information from unauthorized access, disclosure, or misuse:
+        </p>
+        <ul>
+          <li>Our website is served over HTTPS (SSL/TLS encryption) to protect data in transit</li>
+          <li>We use secure, reputable form services to transmit your contact details</li>
+          <li>Access to customer records is limited to authorized Tapanes Enterprise LLC personnel only</li>
+          <li>We do not store payment card information — any payments are processed through secure third-party processors</li>
+        </ul>
+
+        <h2>5. Sharing of Information</h2>
+        <p>
+          We do not sell, trade, rent, or share your personal data with any third party for their own marketing or commercial purposes. The only circumstances in which we may share information are:
+        </p>
+        <ul>
+          <li><strong>Service providers:</strong> Technology services (email platforms, form tools) that help us operate our business, bound by confidentiality obligations</li>
+          <li><strong>Legal requirements:</strong> If required by law, court order, or governmental authority</li>
+          <li><strong>Business transfers:</strong> If Tapanes Enterprise LLC is involved in a merger or acquisition, customer data may be transferred as part of that transaction with appropriate privacy protections</li>
+        </ul>
+
+        <h2>6. Data Retention</h2>
+        <p>
+          We retain your personal information for as long as necessary to provide HVAC services and for reasonable business and legal record-keeping purposes. If you would like us to delete your information, please contact us and we will honor that request where legally permissible.
+        </p>
+
+        <h2>7. Your Rights</h2>
+        <p>You have the right to:</p>
+        <ul>
+          <li><strong>Access</strong> the personal information we hold about you</li>
+          <li><strong>Correct</strong> any inaccurate information</li>
+          <li><strong>Request deletion</strong> of your personal data</li>
+          <li><strong>Opt out</strong> of any future communications from us</li>
+        </ul>
+        <p>
+          To exercise any of these rights, contact us at <a href="mailto:Tapanesenterprise@gmail.com">Tapanesenterprise@gmail.com</a> or call <a href="tel:+18135781529">813-578-1529</a>.
+        </p>
+
+        <h2>8. Children's Privacy</h2>
+        <p>
+          Our website and services are not directed to children under 13. We do not knowingly collect personal information from children. If you believe we have inadvertently collected such information, please contact us and we will promptly delete it.
+        </p>
+
+        <h2>9. Third-Party Links</h2>
+        <p>
+          Our website may contain links to third-party websites (e.g., Google Maps, social media). We are not responsible for the privacy practices of those sites and encourage you to review their policies separately.
+        </p>
+
+        <h2>10. Changes to This Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. The "Last updated" date at the top of this page will reflect any revisions. Continued use of the website after changes constitutes acceptance of the updated policy.
+        </p>
+
+        <h2>11. Contact Us</h2>
+        <p>If you have questions about this Privacy Policy or how we handle your data, please reach out:</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:Tapanesenterprise@gmail.com">Tapanesenterprise@gmail.com</a></li>
+          <li><strong>Phone:</strong> <a href="tel:+18135781529">813-578-1529</a></li>
+          <li><strong>Hours:</strong> Monday–Friday, 8 AM – 6 PM (Emergency service available outside hours)</li>
+        </ul>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="padding:3.5rem 1.5rem 0;">
+    <div style="max-width:1200px; margin:0 auto;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2.5rem; margin-bottom:3rem;">
+
+        <div style="grid-column:span 1;">
+          <img src="Brand_Assets/Logo.png" alt="Tapanes Enterprise LLC logo" style="height:52px; width:auto; margin-bottom:1rem; filter:brightness(0) invert(1); opacity:0.85;" width="200" height="52" loading="lazy" />
+          <p style="font-size:0.88rem; line-height:1.7; color:rgba(229,231,235,0.5); max-width:240px;">
+            Service. Solutions. Strength You Can Count On. — Proudly serving Tampa Bay and surrounding areas.
+          </p>
+          <div style="margin-top:1.25rem; display:flex; gap:0.75rem;">
+            <a href="#" aria-label="Facebook" style="width:34px;height:34px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(229,231,235,0.5);font-size:0.85rem;text-decoration:none;transition:background 0.18s ease,color 0.18s ease;" onmouseover="this.style.background='rgba(74,127,190,0.2)';this.style.color='#a8c8f0'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(229,231,235,0.5)'">f</a>
+            <a href="#" aria-label="Instagram" style="width:34px;height:34px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(229,231,235,0.5);font-size:0.85rem;text-decoration:none;transition:background 0.18s ease,color 0.18s ease;" onmouseover="this.style.background='rgba(74,127,190,0.2)';this.style.color='#a8c8f0'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(229,231,235,0.5)'">in</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Services</div>
+          <a href="services/air-conditioning.html" class="footer-link">Air Conditioning</a>
+          <a href="services/heating-systems.html" class="footer-link">Heating Systems</a>
+          <a href="services/repairs-diagnostics.html" class="footer-link">Repairs &amp; Diagnostics</a>
+          <a href="services/preventive-maintenance.html" class="footer-link">Preventive Maintenance</a>
+          <a href="services/commercial-hvac.html" class="footer-link">Commercial HVAC</a>
+          <a href="services/residential-services.html" class="footer-link">Residential Services</a>
+        </div>
+
+        <div>
+          <div class="footer-heading">Company</div>
+          <a href="index.html#why-us" class="footer-link">Why Choose Us</a>
+          <a href="index.html#process" class="footer-link">Our Process</a>
+          <a href="index.html#faq" class="footer-link">FAQ</a>
+          <a href="service-areas.html" class="footer-link">Service Areas</a>
+          <a href="contact.html" class="footer-link">Get a Quote</a>
+          <a href="blog/index.html" class="footer-link">Blog</a>
+          <a href="contact.html" class="footer-link">Contact Us</a>
+        </div>
+
+        <div>
+          <div class="footer-heading">Contact</div>
+          <a href="tel:+18135781529" class="footer-link" style="display:flex;align-items:center;gap:0.5rem;">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 3.5A1.5 1.5 0 013.5 2h1.39c.414 0 .784.253.934.64l.738 1.847a1 1 0 01-.23 1.052l-.649.65a8.5 8.5 0 004.14 4.14l.649-.65a1 1 0 011.052-.229l1.847.738c.387.15.64.52.64.934V13.5A1.5 1.5 0 0112.5 15C6.701 15 2 10.3 2 4.5V3.5z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            813-578-1529
+          </a>
+          <a href="mailto:Tapanesenterprise@gmail.com" class="footer-link" style="display:flex;align-items:center;gap:0.5rem;">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4a1 1 0 011-1h10a1 1 0 011 1v8a1 1 0 01-1 1H3a1 1 0 01-1-1V4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 4l6 5 6-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Tapanesenterprise@gmail.com
+          </a>
+          <p style="font-size:0.85rem; color:rgba(229,231,235,0.4); margin-top:0.75rem; line-height:1.6;">
+            Tampa Bay &amp; Surrounding Areas<br/>
+            Se Habla Español<br/>
+            Emergency service available
+          </p>
+        </div>
+
+      </div>
+
+      <!-- TRUST SIGNALS BAR -->
+      <div style="border-top:1px solid rgba(74,127,190,0.15); padding:1.25rem 0; margin-bottom:0;">
+        <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:1.5rem;">
+          <span style="display:inline-flex; align-items:center; gap:0.45rem; font-size:0.78rem; font-weight:600; letter-spacing:0.05em; color:rgba(229,231,235,0.45); text-transform:uppercase;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.55 5.18L20 8.18l-4 3.9.94 5.5L12 15l-4.94 2.58.94-5.5-4-3.9 5.45-.82L12 2z" fill="rgba(74,127,190,0.6)"/></svg>
+            Licensed &amp; Insured
+          </span>
+          <span style="color:rgba(74,127,190,0.25); font-size:0.7rem;">|</span>
+          <span style="display:inline-flex; align-items:center; gap:0.45rem; font-size:0.78rem; font-weight:600; letter-spacing:0.05em; color:rgba(229,231,235,0.45); text-transform:uppercase;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="rgba(74,127,190,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            EPA Certified
+          </span>
+          <span style="color:rgba(74,127,190,0.25); font-size:0.7rem;">|</span>
+          <span style="display:inline-flex; align-items:center; gap:0.45rem; font-size:0.78rem; font-weight:600; letter-spacing:0.05em; color:rgba(229,231,235,0.45); text-transform:uppercase;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" stroke="rgba(74,127,190,0.6)" stroke-width="1.75"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="rgba(74,127,190,0.6)" stroke-width="1.75" stroke-linecap="round"/></svg>
+            Secure &amp; Encrypted
+          </span>
+          <span style="color:rgba(74,127,190,0.25); font-size:0.7rem;">|</span>
+          <span style="display:inline-flex; align-items:center; gap:0.45rem; font-size:0.78rem; font-weight:600; letter-spacing:0.05em; color:rgba(229,231,235,0.45); text-transform:uppercase;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="rgba(74,127,190,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            1-Year Workmanship Guarantee
+          </span>
+        </div>
+      </div>
+
+      <div class="divider" style="margin-top:0;"></div>
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem; padding:1.25rem 0 1.5rem;">
+        <p style="font-size:0.8rem; color:rgba(229,231,235,0.35); margin:0;">© 2026 Tapanes Enterprise LLC. All rights reserved.</p>
+        <div style="display:flex; gap:1.25rem; align-items:center; flex-wrap:wrap;">
+          <a href="privacy-policy.html" style="font-size:0.8rem; color:rgba(229,231,235,0.4); text-decoration:none; transition:color 0.18s ease;" onmouseover="this.style.color='#4A7FBE'" onmouseout="this.style.color='rgba(229,231,235,0.4)'">Privacy Policy</a>
+          <span style="color:rgba(74,127,190,0.25); font-size:0.7rem;">|</span>
+          <p style="font-size:0.8rem; color:rgba(229,231,235,0.35); margin:0;">Licensed · Insured · EPA Certified</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll fade-in
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+    fadeEls.forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
