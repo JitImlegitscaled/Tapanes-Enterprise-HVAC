@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="Brand_Assets/Logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Tapanes Enterprise LLC | Tampa Bay HVAC</title>
   <meta name="description" content="Contact Tapanes Enterprise LLC for HVAC service in Tampa Bay. Call 813-578-1529, email us, or fill out our form. Serving Tampa Bay and surrounding areas." />
@@ -421,7 +422,7 @@
     @media (max-width: 550px) {
       .footer-grid { grid-template-columns: 1fr; gap: 1.75rem; }
     }
-      .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: center; height: 68px; }
+      .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: flex-start; gap: 2rem; height: 68px; position: relative; } .nav-brand { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; flex-shrink: 0; } .nav-brand img { height: 36px; width: auto; display: block; } .nav-brand-name { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; line-height: 1.1; } .nav-brand:focus-visible { outline: 2px solid #4a8fd4; outline-offset: 3px; border-radius: 4px; }
     .nav-desktop { display: flex; align-items: center; gap: 1.75rem; }
     @media (max-width: 900px) { .nav-desktop { display: none !important; } .hamburger { display: flex; } }
     @media (min-width: 901px) { .mobile-menu { display: none !important; } }
@@ -445,6 +446,12 @@
   <!-- NAVIGATION -->
   <nav aria-label="Main navigation">
     <div class="nav-inner">
+      <!-- Logo + Brand Name -->
+      <a href="index.html" class="nav-brand" aria-label="Tapanes Enterprise LLC — Home">
+        <img src="Brand_Assets/Logowithoutext.png" alt="Tapanes Enterprise logo" />
+        <span class="nav-brand-name">Tapanes Enterprise</span>
+      </a>
+
       <!-- Desktop links -->
       <div class="nav-desktop" style="display:flex; align-items:center; gap:1.75rem;">
         <a href="index.html" class="nav-link">Home</a>

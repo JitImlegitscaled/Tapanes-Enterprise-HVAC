@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="Brand_Assets/Logo.png" />
   <title>Tapanes Enterprise LLC | HVAC Services in Tampa Bay</title>
   <meta name="description" content="Tapanes Enterprise LLC provides licensed and insured HVAC installation, repair, maintenance, and diagnostic services for homes and businesses across Tampa Bay." />
 
@@ -139,10 +140,34 @@
       padding: 0 1.5rem;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+      gap: 2rem;
       position: relative;
       height: 68px;
     }
+
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-brand img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+    .nav-brand-name {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .nav-brand:focus-visible { outline: 2px solid #4a8fd4; outline-offset: 3px; border-radius: 4px; }
 
     .nav-link {
       font-family: 'Inter', sans-serif;
@@ -1001,6 +1026,12 @@
   ════════════════════════════════════════════════════════ -->
   <nav aria-label="Main navigation">
     <div class="nav-inner">
+      <!-- Logo + Brand Name -->
+      <a href="index.html" class="nav-brand" aria-label="Tapanes Enterprise LLC — Home">
+        <img src="Brand_Assets/Logowithoutext.png" alt="Tapanes Enterprise logo" />
+        <span class="nav-brand-name">Tapanes Enterprise</span>
+      </a>
+
       <!-- Desktop links -->
       <div class="nav-desktop" style="display:flex; align-items:center; gap:1.75rem;">
         <a href="index.html" class="nav-link active">Home</a>
