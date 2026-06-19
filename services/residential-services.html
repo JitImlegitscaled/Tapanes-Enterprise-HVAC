@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; }
-    body { font-family: 'Raleway', sans-serif; background-color: #f8f9fb; color: #1a2333; margin: 0; }
+    *, *::before, *::after { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    body { font-family: 'Raleway', sans-serif; background-color: #f8f9fb; color: #1a2333; margin: 0; overflow-x: hidden; font-size: 16px; line-height: 1.6; }
     h1, h2, h3, h4 { font-family: 'Oswald', sans-serif; letter-spacing: -0.02em; }
     body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
     nav { position:sticky; top:0; z-index:1000; background:rgba(27,58,107,0.97); backdrop-filter:blur(12px); border-bottom:1px solid rgba(74,127,190,0.25); box-shadow:0 4px 24px rgba(27,58,107,0.35),0 1px 4px rgba(0,0,0,0.2); }
@@ -36,7 +36,7 @@
     .dropdown-item:hover { background: #f0f6ff; color: #0F2742; }
     .dropdown-item:focus-visible { outline:2px solid #4A7FBE; outline-offset:-2px; background:rgba(74,127,190,0.12); color:#fff; }
     .dropdown-item-icon { font-size:1rem; flex-shrink:0; }
-    .hamburger { display:none; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:40px; height:40px; background:none; border:none; cursor:pointer; padding:6px; border-radius:6px; transition:background 0.18s ease; }
+    .hamburger { display:none; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:40px; height:40px; background:none; border:none; cursor:pointer; padding:6px; border-radius:6px; transition:background 0.18s ease; position:absolute; right:1rem; top:50%; transform:translateY(-50%); }
     .hamburger:hover { background:rgba(74,127,190,0.15); } .hamburger:focus-visible { outline:2px solid #4A7FBE; outline-offset:2px; }
     .hamburger span { display:block; width:22px; height:2px; background:rgba(229,231,235,0.9); border-radius:2px; transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1),opacity 0.18s ease; transform-origin:center; }
     .hamburger[aria-expanded="true"] span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
@@ -145,7 +145,7 @@
 
       .nav-inner { width: 100%; padding: 0 1.5rem; display: flex; align-items: center; justify-content: center; position: relative; height: 68px; } .nav-brand { position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; flex-shrink: 0; } .nav-brand img { height: 52px; width: auto; display: block; } .nav-brand-name { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; line-height: 1.1; } .nav-brand:focus-visible { outline: 2px solid #4a8fd4; outline-offset: 3px; border-radius: 4px; }
     .nav-desktop { display: flex; align-items: center; gap: 1.75rem; }
-    @media (max-width: 900px) { .nav-desktop { display: none !important; } .hamburger { display: flex; } }
+    @media (max-width: 900px) { .nav-desktop { display: none !important; } .hamburger { display: flex; } .nav-cta-group { display: none !important; } }
     @media (min-width: 901px) { .mobile-menu { display: none !important; } }
     .nav-cta-group { position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 0.85rem; padding-left: 1rem; border-left: 1px solid rgba(255,255,255,0.1); }
   </style>
@@ -316,7 +316,7 @@
   </section>
   <style>@media (min-width: 900px) { .split-grid { grid-template-columns: 1.1fr 0.9fr !important; } }    .nav-inner { width: 100%; padding: 0 1.5rem; display: flex; align-items: center; justify-content: center; position: relative; height: 68px; } .nav-brand { position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; flex-shrink: 0; } .nav-brand img { height: 52px; width: auto; display: block; } .nav-brand-name { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; line-height: 1.1; } .nav-brand:focus-visible { outline: 2px solid #4a8fd4; outline-offset: 3px; border-radius: 4px; }
     .nav-desktop { display: flex; align-items: center; gap: 1.75rem; }
-    @media (max-width: 900px) { .nav-desktop { display: none !important; } .hamburger { display: flex; } }
+    @media (max-width: 900px) { .nav-desktop { display: none !important; } .hamburger { display: flex; } .nav-cta-group { display: none !important; } }
     @media (min-width: 901px) { .mobile-menu { display: none !important; } }
 
     @media (max-width:600px) {
@@ -519,5 +519,19 @@
     }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
     fadeEls.forEach(el => io.observe(el));
   </script>
-</body>
+
+  <!-- Floating Mobile Call Button -->
+  <a href="tel:+18135781529" class="float-call-btn" aria-label="Call Tapanes Enterprise at 813-578-1529" id="float-call-btn" style="display:none; position:fixed; bottom:1.25rem; right:1.25rem; bottom:calc(1.25rem + env(safe-area-inset-bottom,0px)); z-index:9000; width:56px; height:56px; background:#0a1f44; border-radius:50%; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(10,31,68,0.55); border:none; cursor:pointer; text-decoration:none; transition:transform 0.18s ease,opacity 0.3s ease;">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.1 4.18 2 2 0 015.09 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 6.99l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0122 16.92z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+  <style>@media(max-width:767px){#float-call-btn{display:flex!important;}}#float-call-btn.hidden{opacity:0;pointer-events:none;}</style>
+  <script>
+  (function(){
+    var btn=document.getElementById('float-call-btn');
+    var footer=document.querySelector('footer');
+    if(!btn||!footer)return;
+    function chk(){var r=footer.getBoundingClientRect();if(r.top<window.innerHeight){btn.classList.add('hidden');}else{btn.classList.remove('hidden');}}
+    window.addEventListener('scroll',chk,{passive:true});chk();
+  })();
+  </script></body>
 </html>

@@ -19,7 +19,7 @@
       --steel: #6B7280;
       --light-gray: #E5E7EB;
     }
-    * { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     body {
       font-family: 'Raleway', sans-serif;
       background-color: #f8f9fb;
@@ -79,7 +79,7 @@
     .mobile-sub-link { display: flex; align-items: center; gap: 0.5rem; font-family: 'Raleway', sans-serif; font-size: 0.85rem; font-weight: 500; color: rgba(229,231,235,0.7); text-decoration: none; padding: 0.6rem 1.25rem; transition: background 0.15s ease, color 0.15s ease; }
     .mobile-sub-link:hover, .mobile-sub-link:focus-visible { background: rgba(74,127,190,0.1); color: #fff; outline: none; }
     .mobile-cta-wrap { padding: 0.75rem 1.5rem 0.25rem; }
-    @media (max-width: 900px) { .nav-desktop { display: none !important; } .hamburger { display: flex; } }
+    @media (max-width: 900px) { .nav-desktop { display: none !important; } .hamburger { display: flex; } .nav-cta-group { display: none !important; } }
     @media (min-width: 901px) { .mobile-menu { display: none !important; } }
     .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg,#2E5FA3 0%,#1B3A6B 100%); color: #fff; font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.75rem 1.75rem; border-radius: 4px; border: none; cursor: pointer; box-shadow: 0 4px 16px rgba(27,58,107,0.45), 0 1px 3px rgba(0,0,0,0.2); transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s ease, background 0.18s ease; text-decoration: none; }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(27,58,107,0.55), 0 2px 6px rgba(0,0,0,0.25); background: linear-gradient(135deg,#3668b8 0%,#22498a 100%); }
@@ -282,7 +282,7 @@
     .footer-bottom-link:hover { color: #9fc8f0; }
       .nav-inner { width: 100%; padding: 0 1.5rem; display: flex; align-items: center; justify-content: center; position: relative; height: 68px; } .nav-brand { position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; flex-shrink: 0; } .nav-brand img { height: 52px; width: auto; display: block; } .nav-brand-name { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; line-height: 1.1; } .nav-brand:focus-visible { outline: 2px solid #4a8fd4; outline-offset: 3px; border-radius: 4px; }
     .nav-desktop { display: flex; align-items: center; gap: 1.75rem; }
-    @media (max-width: 900px) { .nav-desktop { display: none !important; } .hamburger { display: flex; } }
+    @media (max-width: 900px) { .nav-desktop { display: none !important; } .hamburger { display: flex; } .nav-cta-group { display: none !important; } }
     @media (min-width: 901px) { .mobile-menu { display: none !important; } }
     .nav-cta-group { position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 0.85rem; padding-left: 1rem; border-left: 1px solid rgba(255,255,255,0.1); }
 
@@ -440,7 +440,7 @@
     if(menu){menu.addEventListener('keydown',function(e){var idx=Array.prototype.indexOf.call(items,document.activeElement);if(e.key==='ArrowDown'){e.preventDefault();if(idx<items.length-1)items[idx+1].focus();}if(e.key==='ArrowUp'){e.preventDefault();if(idx>0)items[idx-1].focus();else{close();btn.focus();}}if(e.key==='Escape'){close();btn.focus();}if(e.key==='Tab')close();});}
     document.addEventListener('click',function(e){if(dd&&!dd.contains(e.target))close();});
     var hbg=document.getElementById('hamburger-btn');var mob=document.getElementById('mobile-menu');
-    if(hbg&&mob){hbg.addEventListener('click',function(){var o=mob.classList.toggle('open');hbg.setAttribute('aria-expanded',o?'true':'false');});}
+    if(hbg&&mob){hbg.addEventListener('click',function(){var o=mob.classList.toggle('open');hbg.setAttribute('aria-expanded',o?'true':'false');});document.addEventListener('click',function(e){if(mob.classList.contains('open')&&!mob.contains(e.target)&&!hbg.contains(e.target)){mob.classList.remove('open');hbg.setAttribute('aria-expanded','false');}});}
     var mBtn=document.getElementById('mobile-services-btn');var mSub=document.getElementById('mobile-services-sub');
     if(mBtn&&mSub){mBtn.addEventListener('click',function(){var o=mSub.classList.toggle('open');mBtn.setAttribute('aria-expanded',o?'true':'false');});}
   })();
@@ -651,5 +651,19 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
-</body>
+
+  <!-- Floating Mobile Call Button -->
+  <a href="tel:+18135781529" class="float-call-btn" aria-label="Call Tapanes Enterprise at 813-578-1529" id="float-call-btn" style="display:none; position:fixed; bottom:1.25rem; right:1.25rem; bottom:calc(1.25rem + env(safe-area-inset-bottom,0px)); z-index:9000; width:56px; height:56px; background:#0a1f44; border-radius:50%; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(10,31,68,0.55); border:none; cursor:pointer; text-decoration:none; transition:transform 0.18s ease,opacity 0.3s ease;">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.1 4.18 2 2 0 015.09 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 6.99l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0122 16.92z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+  <style>@media(max-width:767px){#float-call-btn{display:flex!important;}}#float-call-btn.hidden{opacity:0;pointer-events:none;}</style>
+  <script>
+  (function(){
+    var btn=document.getElementById('float-call-btn');
+    var footer=document.querySelector('footer');
+    if(!btn||!footer)return;
+    function chk(){var r=footer.getBoundingClientRect();if(r.top<window.innerHeight){btn.classList.add('hidden');}else{btn.classList.remove('hidden');}}
+    window.addEventListener('scroll',chk,{passive:true});chk();
+  })();
+  </script></body>
 </html>
